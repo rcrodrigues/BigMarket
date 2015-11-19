@@ -71,7 +71,7 @@ Execute o seguinte comando no terminal para mudar o usuário para postgres:
 
     sudo su postgres
 
-Execute os seguintes comandos para criar os bancos e configurar para que os mesmos utilizem o PostGIS:
+Execute os seguintes comandos para criar os bancos:
 
     createdb -E UTF8 --lc-collate='pt_BR.UTF-8' --lc-ctype='pt_BR.UTF-8' -T template0 mercadao
     
