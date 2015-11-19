@@ -1,0 +1,19 @@
+mixin modalCancelar()
+
+	div#cancelarModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+		div.modal-dialog
+			div.modal-content
+				div.modal-header
+					button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') ×
+						span.sr-only Fechar
+					h4#myModalLabel.modal-title {{modalCancelarConfig.title}}
+				div.modal-body
+					| {{modalCancelarConfig.textoBody}}
+				div.modal-footer
+					button.btn.btn-default(type='button', data-dismiss='modal')
+						span.glyphicon.glyphicon-remove
+						span  Não
+					button.btn.btn-success(ng-click="modalCancelarConfig.funcaoRemover()")
+						span.glyphicon.glyphicon-ok
+						span(style="color: #FFF;")  Sim

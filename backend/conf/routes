@@ -2,14 +2,14 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                                       Application.index
+# ROTA PARA OS ARQUIVOS ESTÁTICOS
+# IMPORTANTE!!! MANDER SEMPRE O BLOCO ABAIXO NO FINAL DO ARQUIVO!
 
-# Ignore favicon requests
-GET     /favicon.ico                            404
-
-# Map static resources from the /app/public folder to the /public path
+GET     /scripts/                               staticDir:public/scripts
+GET	    /styles/                                staticDir:public/styles
+GET	    /images/                                staticDir:public/images
+GET	    /fonts/	                                staticDir:public/fonts
+GET	    /views/	                                staticDir:public/views
+GET     /tmp/                                   staticDir:tmp
 GET     /public/                                staticDir:public
-
-# Catch all
-*       /{controller}/{action}                  {controller}.{action}
+GET     /                                       staticDir:public/views

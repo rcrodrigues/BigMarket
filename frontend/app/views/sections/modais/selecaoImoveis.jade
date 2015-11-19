@@ -1,0 +1,36 @@
+mixin selecionaImovel(telaInicial)
+	div#modalSelecionarImoveis.modal.fade(ng-controller='ListaImoveisController', data-backdrop='static')
+		div.modal-dialog
+			div.modal-content
+
+				div.modal-header
+					h4.modal-title(ng-show='imoveis && imoveis.length > 0') Selecione uma propriedade rural
+					h4.modal-title(ng-hide='imoveis && imoveis.length > 0') Alerta
+
+				div.modal-body
+
+					h5(ng-hide='imoveis && imoveis.length > 0') Não foram encontrados imóveis vinculados ao seu usuário.
+
+					div(ng-show='imoveis && imoveis.length > 0')
+						div.input-group
+							span.input-group-addon
+								i.glyphicon.glyphicon-search
+							input.form-control.ng-pristine.ng-valid(type='text', placeholder='Informe o nome da propriedade, município ou número do CAR', ng-model='searchFilter')
+						div.input-group
+							h6 Propriedades cadastradas
+						hr.line-title
+						div.containerListaImoveis
+							ul.col-md-12
+								li.borda-lista(ng-repeat='imovel in imoveis | filter:searchFilter', ng-click='selecionaImovel(imovel.id)', ng-class='imovel.id === idImovelSelecionado | if : "active" : ""')
+									strong.no-padding  {{imovel.nomeImovel}}  ({{imovel.municipio.nome}}/{{imovel.municipio.estado.id}})
+									br
+									| {{imovel.codigoImovel}}
+
+				div.modal-footer
+					button.btn.btn-success.pull-right(ng-disabled='!idImovelSelecionado', type='button', ng-click='acessarImovel()')
+						span.glyphicon.glyphicon-ok
+						span  Entrar
+					if !telaInicial
+						button.btn.btn-default.pull-left(type='button', data-dismiss='modal')
+							span.glyphicon.glyphicon-remove
+							span  Cancelar

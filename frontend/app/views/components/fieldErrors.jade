@@ -1,0 +1,18 @@
+mixin fieldErrors()
+
+	- var formName = attributes.form || 'form';
+
+	if attributes.field && attributes.errors
+		div.has-error( ng-show="#{ attributes['ng-show'] || true}")
+
+			for e in attributes.errors
+				label.control-label(ng-show="(#{formName}.#{attributes.field}.$dirty && #{formName}.#{attributes.field}.$error.#{e})")
+					p(ng-if="'#{e}' === 'required'") Campo obrigatório.
+					p(ng-if="'#{e}' === 'email'") E-mail inválido.
+					p(ng-if="'#{e}' === 'url'") O URL informado é inválido.
+					p(ng-if="'#{e}' === 'tel'") O número de telefone informado é invalido. 
+					p(ng-if="'#{e}' === 'numeros'") Este campo aceita apenas números.
+					p(ng-if="'#{e}' === 'pwCheck'") As senhas não conferem.
+					p(ng-if="'#{e}' === 'minlength'") Valor muito pequeno.
+					p(ng-if="'#{e}' === 'cpf'") CPF inválido.
+					p(ng-if="'#{e}' === 'cnpj'") CNPJ inválido.

@@ -1,0 +1,35 @@
+div.modal-header
+	button.close(type='button', ng-click='fechar()')
+		span(aria-hidden='true') ×
+		span.sr-only Fechar
+	h4#myModalLabel.modal-title Complementação de Solicitação
+
+div.modal-body
+	div.panel.panel-danger
+		div.panel-heading
+			span.panel-title Justificativa da não aprovação
+		div.panel-body
+			//TODO: Texto estático, buscar dados do módulo de análise
+			| Após a análise técnica da solicitação apresentada, a não aprovação se deu pelo não cumprimento
+			| da legislação vigente, conforme apresentado abaixo.
+
+	div.panel.panel-default
+		div.panel-heading
+			span.panel-title Complemento da solicitação
+		div.panel-body
+			div.col-md-12.form-group
+				label Complementação:
+				textarea.form-control(rows='3')
+
+			div.col-md-12.form-group
+				label Envio de anexos:
+				div.div-imagem-preview(ng-show="anexo")
+					a(name='arquivo_art', href='{{urlAnexo}}', download='{{anexo}}', class='imagem-preview', target='_blank', ng-model='anexo')
+				button.btn-cancelar-imagem(ng-show="anexo", ng-click="cancelarUpload('anexo')")
+					span.glyphicon.glyphicon-remove
+					|   REMOVER ARQUIVO
+				div.col-md-12.dropzone#dropzone-upload-anexo(ng-show="!anexo")
+					span.glyphicon.glyphicon-upload.dropzone-graphycon
+					br
+					| Clique ou arraste para enviar
+

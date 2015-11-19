@@ -1,0 +1,13 @@
+{
+  "name": "Solicitação de Supressão",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-bootstrap": "~0.13.0",
+    "blockui": "*",
+    "bootstrap": "3.3.4",
+    "jquery": "2.1.3",
+    "underscore": "~1.8.3",
+    "dropzone": "~3.10.0"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "node": true,
+  "browser": true,
+  "esnext": true,
+  "bitwise": false,
+  "camelcase": true,
+  "curly": false,
+  "eqeqeq": false,
+  "immed": true,
+  "indent": false,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": false,
+  "regexp": true,
+  "undef": true,
+  "unused": false,
+  "strict": false,
+  "trailing": true,
+  "smarttabs": true,
+  "jquery": true,
+  "nonstandard": true,
+  "globals": {
+    "angular": false,
+    "app": true,
+    "_": false,
+    "Dropzone": false
+  },
+  "devel":true
+
+}

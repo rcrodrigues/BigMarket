@@ -1,0 +1,18 @@
+mixin paginacao(model, nomeLista)
+	- nomeLista = nomeLista || "processos"
+
+	div.row(ng-show="#{model}.totalItens > 0")
+		div.col-md-6
+			pagination(boundary-links='true', total-items='#{model}.totalItens', ng-model='#{model}.paginaAtual', previous-text='‹', next-text='›', 
+				first-text='«', last-text='»', rotate='true', num-pages='#{model}.qtdPaginas', max-size='5', 
+				items-per-page='#{model}.tamanhoPagina', ng-change="#{model}.onPaginaClick()")
+		div.col-md-6
+			span.pagination-count.pull-right
+				| Exibindo 
+				strong {{#{model}.intervaloItens.inicio}} 
+				| - 
+				strong {{#{model}.intervaloItens.fim}} 
+				| de 
+				strong {{#{model}.totalItens}} 
+				| #{nomeLista}
+

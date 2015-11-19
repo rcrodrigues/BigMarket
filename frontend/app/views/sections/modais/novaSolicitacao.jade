@@ -1,0 +1,27 @@
+div#modalNovaSolicitacao.modal.fade
+	div.modal-dialog
+		div.modal-content
+
+			div.modal-header
+				h4.modal-title Nova solicitação
+
+			div.modal-body
+
+				p(ng-hide="art67") A reserva legal declarada e/ou vetorizada neste imóvel está baseada em enquadramento no Art.67 da Lei 12.652 / 2012?
+
+				p(ng-show="art67") Não é possível solicitar supressão de vegetação nativa para uso alternativo do solo em imóveis que se utilizam dos benefícios do Art.67 da Lei 12.652 / 2012. (
+					a(href="http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm", target='_blank') ver artigo
+					)
+
+			div.modal-footer
+				button.btn.btn-success(type="button", ng-click="art67=true", ng-hide="art67")
+					span.glyphicon.glyphicon-ok
+					span  Sim
+
+				button.btn.btn-success(type="button", ng-click="criarSolicitacao()",ng-hide="art67")
+					span.glyphicon.glyphicon-remove
+					span  Não
+
+				button.btn.btn-default(type="button", data-dismiss='modal', ng-show="art67")
+					span.glyphicon.glyphicon-ok
+					span  Fechar

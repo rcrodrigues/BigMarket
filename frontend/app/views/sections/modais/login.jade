@@ -1,0 +1,23 @@
+div#modalLogin.modal.fade(data-backdrop='static')
+	div.modal-dialog
+		div.modal-content
+
+			div.modal-header
+				h4.modal-title Acesso ao Sistema
+
+			div.modal-body
+
+				div.form
+
+					div.form-group
+						label(for="login") Usuário:
+						input.form-control(type="text", size="15", name="login", ng-model="username")
+
+					div.form-group
+						label(for="senha") Senha:
+						input.form-control(type="password", size="15", name="senha", ng-model="password")
+
+			div.modal-footer
+				button.btn.btn-success(type="button", ng-click="login()")
+					span.glyphicon.glyphicon-ok
+					span  Entrar

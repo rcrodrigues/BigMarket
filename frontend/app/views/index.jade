@@ -1,0 +1,39 @@
+!!! 5
+html(lang='pt-br')
+
+	head
+
+		meta(charset="UTF-8")
+
+		link(href='styles/estilo.css', rel="stylesheet")
+		link(href='images/favicon.png', rel="shortcut icon")
+
+		script(src='scripts/jquery.min.js')
+		script(src='scripts/angular.min.js')
+		script(src='scripts/underscore-min.js')
+		script(src='scripts/bootstrap.min.js')
+		script(src='scripts/ui-bootstrap.min.js')
+		script(src='scripts/ui-bootstrap-tpls.min.js')
+		script(src='scripts/jquery.blockUI.js')
+		script(src='scripts/dropzone.min.js')
+
+		title Mercadão
+
+	body(ng-app="mercadaoModule", ng-controller="AppCtrl", ng-cloak)
+		
+		div#wrap
+			
+			- var home= true
+	
+	//-<!-- build:js  scripts/scripts.min.js -->
+	
+	script(src='scripts/app.js')
+	script(src='scripts/appConfig.js')
+
+	script(src='scripts/factories/httpInterceptor.js')
+		
+	script(src='scripts/filters/ifFilter.js')
+
+	script(src='scripts/controllers/inicial.js')	
+
+	//-<!-- endbuild -->
