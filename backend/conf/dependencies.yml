@@ -1,0 +1,12 @@
+# Application dependencies
+
+require:
+    - net.sf.flexjson -> flexjson 3.3
+    - play:
+        exclude:
+            - org.hibernate -> *
+            - org.postgresql -> *
+            - org.javassist -> *
+    - org.hamcrest -> hamcrest-all 1.3
+    - org.mockito -> mockito-core 2.0.31-beta       
+    - org.hibernate -> hibernate-core 4.2.21.Final
