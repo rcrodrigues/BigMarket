@@ -138,6 +138,8 @@ module.exports = function(grunt) {
 						src: [
 							'jquery/dist/jquery.min.js',
 							'jquery/dist/jquery.min.map',
+							'angular-route/angular-route.min.js',
+							'angular-route/angular-route.min.map',
 							'angular/angular.min.js',
 							'angular/angular.min.js.map',
 							'underscore/underscore-min.js',
@@ -162,6 +164,7 @@ module.exports = function(grunt) {
 						src: [
 							'jquery/dist/jquery.js',
 							'angular/angular.js',
+							'angular-route/angular-route.js',
 							'bootstrap/dist/js/bootstrap.js',
 							'angular-bootstrap/ui-bootstrap.js',
 							'angular-bootstrap/ui-bootstrap-tpls.js',

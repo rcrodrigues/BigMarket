@@ -1,6 +1,6 @@
 (function() {
 
-	angular.module('appModule').factory('httpInterceptor', function($q, $window, config, $rootScope) {
+	angular.module('mercadaoModule').factory('httpInterceptor', function($q, $window, config, $rootScope) {
 
 		var HTTPStatus = {
 			UNAUTHORIZED: '401',
