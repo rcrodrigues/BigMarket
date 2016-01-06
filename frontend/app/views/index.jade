@@ -23,8 +23,10 @@ html(lang='pt-br')
 	body(ng-app="mercadaoModule", ng-controller="AppCtrl", ng-cloak)
 		
 		div#wrap
-			
-			- var home= true
+			include header
+			ng-view
+				//- - var home= true
+
 	
 	//-<!-- build:js  scripts/scripts.min.js -->
 	
@@ -35,6 +37,7 @@ html(lang='pt-br')
 		
 	script(src='scripts/filters/ifFilter.js')
 
-	script(src='scripts/controllers/inicial.js')	
+	script(src='scripts/controllers/inicial.js')
+
 
 	//-<!-- endbuild -->

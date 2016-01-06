@@ -4,6 +4,7 @@
 
 	modulo.controller('InicialController', function($scope, $rootScope, $location) {
 		console.log('teste de console');
+		
 	});
 
 })();
