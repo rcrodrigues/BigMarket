@@ -3,7 +3,7 @@
 	var modulo = angular.module('mercadaoModule');
 
 	modulo.controller('headerController', function($scope, $rootScope, $location) {
-		$scope.itemLocality = "";
+		$scope.itemLocality = "Lavras";
 
 		$scope.init = function() {
 			$scope.geocoder = new google.maps.Geocoder();
