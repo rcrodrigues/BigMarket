@@ -1,15 +1,18 @@
 # --- !Ups
 
-ALTER COLUMN pessoa.email TYPE text;
-ALTER COLUMN pessoa.cpf TYPE text;
-ALTER COLUMN pessoa.telefone TYPE text;
+ALTER TABLE mercadao.pessoa
+	ALTER COLUMN email TYPE text,
+	ALTER COLUMN cpf TYPE text,
+	ALTER COLUMN telefone TYPE text;
 
-ALTER COLUMN produto.nome TYPE text;
+ALTER TABLE mercadao.produto
+	ALTER COLUMN nome TYPE text;
 
-ALTER TABLE produto RENAME COLUMN aceitatroca TO aceita_troca;
-ALTER TABLE produto RENAME COLUMN produtonovo TO produto_novo;
+ALTER TABLE mercadao.midia
+	ALTER COLUMN dado TYPE text;
 
-ALTER TABLE pessoa RENAME COLUMN datanascimento TO data_nascimento;
-
+ALTER TABLE mercadao.comentario_produto
+	ALTER COLUMN nome_comentador TYPE text,
+	ALTER COLUMN email_comentador TYPE text;
 
 # --- !Downs

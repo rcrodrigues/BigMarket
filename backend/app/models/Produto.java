@@ -22,7 +22,8 @@ public class Produto extends GenericModel {
 	@SequenceGenerator(name = "produto_produto_id_seq", sequenceName = "mercadao.produto_produto_id_seq", allocationSize = 1, initialValue = 1)
 	public Integer id;
 	
-	//public Usuario usuario;
+	@Column(name="usuario_id")
+	public Usuario usuario;
 	
 	public String nome;
 	
@@ -30,12 +31,12 @@ public class Produto extends GenericModel {
 	
 	public Double preco;
 	
-	@Column(name="aceita_troca")
+	@Column(name="aceitatroca")
 	public Boolean aceitaTroca;
 	
 	public Date nascimento;
 	
-	@Column(name="produto_novo")
+	@Column(name="produtonovo")
 	public Boolean novo;
 	
 	public Boolean vendido;

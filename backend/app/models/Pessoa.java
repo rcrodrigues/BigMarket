@@ -16,13 +16,6 @@ import play.db.jpa.GenericModel;
 @Table(name = "pessoa", schema = "mercadao")
 public class Pessoa extends GenericModel{
 	
-//	pessoa_id serial NOT NULL,
-//	  nome character varying NOT NULL,
-//	  datanascimento date NOT NULL,
-//	  email character varying NOT NULL,
-//	  cpf bigint NOT NULL,
-//	  telefone character varying,
-	
 	@Id
 	@Column(name="pessoa_id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pessoa_pessoa_id_seq")
@@ -31,7 +24,7 @@ public class Pessoa extends GenericModel{
 	
 	public String nome;
 	
-	@Column(name="data_nascimento")
+	@Column(name="datanascimento")
 	public Date dataNascimento;
 	
 	public String email;
