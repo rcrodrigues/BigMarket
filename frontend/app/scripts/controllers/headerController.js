@@ -4,49 +4,50 @@
 
 	modulo.controller('headerController', function($scope, $rootScope, $location) {
 		$scope.itemLocality = "Lavras";
+		$scope.geocoder = null;
 
-		$scope.init = function() {
-			$scope.geocoder = new google.maps.Geocoder();
+		var codeLatLng = function(lat, lng) {
 
-			var codeLatLng = function(lat, lng) {
+			var latlng = new google.maps.LatLng(lat, lng);
 
-				var latlng = new google.maps.LatLng(lat, lng);
+			$scope.geocoder.geocode({'latLng': latlng}, function(results, status) {
 
-				$scope.geocoder.geocode({latLng: latlng}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
 
-					if (status == google.maps.GeocoderStatus.OK) {
+					if (results[1]) {
 
-						if (results[1]) {
+						var arrAddress = results;
 
-							var arrAddress = results;
+						$.each(arrAddress, function(i, address_component) {
 
-							$.each(arrAddress, function(i, address_component) {
+							if (address_component.types[0] == "locality") {
 
-								if (address_component.types[0] == "locality") {
+								$scope.itemLocality = address_component.address_components[0].long_name;
+								$scope.$apply();
 
-									$scope.itemLocality = address_component.address_components[0].long_name;
-									$scope.$apply();
+							}
 
-								}
-
-							});
-
-						} else {
-
-							console.log("No results found");
-
-						}
+						});
 
 					} else {
 
-						console.log("Geocoder failed due to: " + status);
+						console.log("No results found");
 
 					}
 
-				});
+				} else {
 
-			};
-			
+					console.log("Geocoder failed due to: " + status);
+
+				}
+
+			});
+
+		};
+
+
+		$scope.init = function() {
+			$scope.geocoder = new google.maps.Geocoder();
 			// Get the latitude and the longitude;
 			var successFunction = function(position) {
 
@@ -57,16 +58,23 @@
 
 			};
 
-			var errorFunction = function() {
+			var errorFunction = function(err) {
 
-				alert("Geocoder failed");
+				if(err.code == 1) {
+	               console.log("Error: Access to location is denied!");
+	            }
+	            
+	            else if( err.code == 2) {
+	               console.log("Error: Position is unavailable!");
+	            }
 
 			};
 			
 			if (navigator.geolocation)
-				navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-
+				navigator.geolocation.getCurrentPosition(successFunction, errorFunction,{timeout:1000});
 		};
+
+		
 
 	});
 

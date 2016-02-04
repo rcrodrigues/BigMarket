@@ -32,6 +32,8 @@ var app = exports;
 	.controller('AppCtrl', ["$scope", "$rootScope",
 		function($scope, $rootScope) {
 
+			$.material.init();
+
 			// Evento de mudanca de rota
 			$scope.$on('$routeChangeSuccess', function(scope, next, current) {
 

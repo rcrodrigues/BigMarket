@@ -1,11 +1,13 @@
-nav(class='navbar navbar-default', data-ng-controller='headerController', ng-cloak, data-ng-init='init()')
-	div(class='container-fluid')
-		div(class='navbar-header')
+include ../views/sections/modais/login
+
+nav.navbar.navbar-default.navbar-static-top(data-ng-controller='headerController', ng-cloak, data-ng-init='init()')
+	.container-fluid
+		.navbar-header
 			a(class='navbar-brand', href='#', ng-show="itemLocality != ''").
 				Mercadão de {{itemLocality}}
 		
 
-		button(type='button', class='btn btn-default navbar-btn pull-right').
-				Login
-		button(type='button', class='btn btn-success navbar-btn pull-right', style='margin-right:5px').
-				Publicar Produto
+		a.btn.btn-default.btn-raised.navbar-btn.pull-right(type='button', class='', data-toggle='modal', data-target="#modalLogin") login
+		//- button(type='button', class='btn btn-success navbar-btn pull-right', style='margin-right:5px').
+		//- 		Publicar Produto
+		

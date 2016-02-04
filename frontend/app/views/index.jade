@@ -7,6 +7,13 @@ html(lang='pt-br')
 
 		link(href='styles/estilo.css', rel="stylesheet")
 		link(href='images/favicon.png', rel="shortcut icon")
+		<!-- Material Design fonts -->
+		link(href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700', rel="stylesheet")
+		link(href='//fonts.googleapis.com/icon?family=Material+Icons', rel="stylesheet")
+		<!-- Bootstrap Material Design -->
+		link(href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/css/bootstrap-material-design.css', rel="stylesheet")
+		link(href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/css/ripples.css', rel="stylesheet")
+
 
 		script(src='scripts/jquery.min.js')
 		script(src='scripts/angular.min.js')
@@ -18,7 +25,7 @@ html(lang='pt-br')
 		script(src='scripts/jquery.blockUI.js')
 		script(src='scripts/dropzone.min.js')
 		script(src='http://maps.googleapis.com/maps/api/js')
-
+	
 		title Mercadão
 
 	body(ng-app="mercadaoModule", ng-controller="AppCtrl", ng-cloak)
@@ -30,7 +37,8 @@ html(lang='pt-br')
 
 	
 	//-<!-- build:js  scripts/scripts.min.js -->
-	
+	script(src='https://cdn.jsdelivr.net/bootstrap.material-design/0.5.8/js/material.min.js')
+
 	script(src='scripts/app.js')
 	script(src='scripts/appConfig.js')
 
