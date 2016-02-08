@@ -9,7 +9,8 @@ module.exports = function(grunt) {
 		jades: [
 			'index.jade',
 
-			'sections/inicial.jade'
+			'sections/inicial.jade',
+			'sections/cadastrarUsuario.jade'
 		]
 	};
 		

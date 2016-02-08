@@ -6,9 +6,6 @@
 # Produtos
 GET		/produtos								Produtos.getAll
 
-# Autenticação
-*       /auth       module:securesocial
-
 # ROTA PARA OS ARQUIVOS ESTÁTICOS
 # IMPORTANTE!!! MANDER SEMPRE O BLOCO ABAIXO NO FINAL DO ARQUIVO!
 

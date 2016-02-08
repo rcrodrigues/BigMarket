@@ -17,8 +17,5 @@
 	</natures>
 	<linkedResources><link><name>docviewer</name><type>2</type><location>/opt/playframework/play-1.4.0/modules/docviewer/app</location></link>
 <link><name>public/docviewer</name><type>2</type><location>/opt/playframework/play-1.4.0/modules/docviewer/public</location></link>
-<link><name>securesocial-0.2.6</name><type>2</type><location>/home/sheldon/Git_Projects/ufla/eng_software/software-engineering-project/backend/modules/securesocial-0.2.6/app</location></link>
-<link><name>conf/securesocial-0.2.6</name><type>2</type><location>/home/sheldon/Git_Projects/ufla/eng_software/software-engineering-project/backend/modules/securesocial-0.2.6/conf</location></link>
-<link><name>public/securesocial-0.2.6</name><type>2</type><location>/home/sheldon/Git_Projects/ufla/eng_software/software-engineering-project/backend/modules/securesocial-0.2.6/public</location></link>
 </linkedResources>
 </projectDescription>
