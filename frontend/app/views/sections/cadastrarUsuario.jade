@@ -1,3 +1,27 @@
 .container-fluid
 	legend Cadastrar Usuario
 		form#productFilter
+
+			.form-group
+				label(for="nome") Nome
+				input#nome.form-control(ng-model="usuario.pessoa.nome", type="text", style="width:100%")
+
+			.form-group
+				label(for="dataNascimento") Data de Nascimento
+				input#dataNascimento.form-control(ng-model="usuario.pessoa.dataNascimento", type="date", style="width:100%")
+
+			.form-group
+				label(for="email") Email
+				input#email.form-control(ng-model="usuario.pessoa.email", type="email", style="width:100%")
+
+			.form-group
+				label(for="cpf") CPF
+				input#cpf.form-control(ng-model="usuario.pessoa.cpf", type="text", style="width:100%")
+
+			.form-group
+				label(for="telefone") Telefone
+				input#telefone.form-control(ng-model="usuario.pessoa.telefone", type="text", style="width:100%")
+
+			a.btn.btn-success.pull-right(type="button", ng-click="cadastrar()")
+				i.material-icons check
+				span  Cadastrar
