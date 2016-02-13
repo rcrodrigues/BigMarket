@@ -9,3 +9,58 @@ body {
 	background-color: #eeeeee;
 }
 
+.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+	transition: 1s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
+
+.fill {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden
+}
+
+.fill img {
+    flex-shrink:0;
+    min-width:100%;
+    min-height:100%
+}
+
+.noPadding{
+	padding: 0 !important;
+}
+
+.cardProduto {
+	max-height: 30%;
+}
+
+.cardBottomLeftInfo{
+	position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    padding-bottom:10px;
+    padding-top:10px;
+    padding-left:15px; 
+    color: #fff;
+    font-size: 2em;
+    background-color: #000000;
+    opacity: 0.6;
+
+}
+
+.cardTopRightInfo{
+	position: absolute;
+    top: 16px;
+    right: 18px;
+    padding-top:15px;
+    padding-right:15px; 
+    color: #fff;
+    font-size: 2em;
+}
