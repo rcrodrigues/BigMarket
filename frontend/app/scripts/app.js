@@ -15,6 +15,10 @@ var app = exports;
 			$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|data):/);
 
 			$routeProvider
+				.when('/cadastrarEditarProduto', {
+					templateUrl: 'views/sections/cadastrarEditarProduto.html',
+					controller: 'CadastrarEditarProdutoController'
+				})
 				.when('/dashboard', {
 					templateUrl: 'views/sections/dashboard.html',
 					controller: 'DashboardController'

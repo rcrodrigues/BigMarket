@@ -1,0 +1,55 @@
+.col-md-12
+	.panel.panel-primary
+		.panel-heading
+			h3.panel-title Cadastrar Produto
+		.panel-body
+			form#cadastrarProduto
+
+				.form-group
+					label(for="nome") Nome *
+					input#nome.form-control(ng-model="produto.nome", type="text")
+
+				.form-group
+					label(for="descricao") Descrição *
+					input#descricao.form-control(ng-model="produto.descricao", type="text")
+
+				.form-group
+					label(for="preco") Preço *
+					input#preco.form-control(ng-model="produto.preco", type="email")
+
+				.form-group
+					label(for="aceitaTroca") Aceita outro produto em troca? *
+					.togglebutton
+						label
+							input(type='checkbox', checked='')
+							| Não
+							span.toggle(style="margin-left:13px;")
+							| Sim
+
+				.form-group
+					label(for="produtoNovo") O produto é novo? *
+					.togglebutton
+						label
+							input(type='checkbox', checked='')
+							| Não
+							span.toggle(style="margin-left:13px;")
+							| Sim
+
+				.form-group
+					label(for="vendido") O produto já foi vendido? *
+					.togglebutton
+						label
+							input(type='checkbox')
+							| Não
+							span.toggle(style="margin-left:13px;")
+							| Sim
+
+				.form-group.is-fileinput.is-empty
+					label.control-label(for='imagem') Imagem do produto *
+					input#imagem(type='file')
+					input.form-control(type='text', readonly='', placeholder='Clique aqui e adicione uma imagem ao produto')
+					span.material-input
+
+				a.btn.btn-success.pull-right(type="button", ng-click="cadastrar()")
+					i.material-icons check
+					span  Cadastrar

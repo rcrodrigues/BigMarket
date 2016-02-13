@@ -11,7 +11,8 @@ module.exports = function(grunt) {
 
 			'sections/inicial.jade',
 			'sections/cadastrarUsuario.jade',
-			'sections/dashboard.jade'
+			'sections/dashboard.jade',
+			'sections/cadastrarEditarProduto.jade'
 		]
 	};
 		
