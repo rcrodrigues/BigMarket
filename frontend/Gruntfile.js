@@ -10,7 +10,9 @@ module.exports = function(grunt) {
 			'index.jade',
 
 			'sections/inicial.jade',
-			'sections/cadastrarUsuario.jade'
+			'sections/cadastrarUsuario.jade',
+			'sections/dashboard.jade',
+			'sections/cadastrarEditarProduto.jade'
 		]
 	};
 		
