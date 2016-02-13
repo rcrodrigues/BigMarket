@@ -1,0 +1,21 @@
+
+.col-md-12
+	.panel.panel-primary
+		.panel-heading
+			h3.panel-title Produtos cadastrados
+		.panel-body
+			.row.col-md-12(ng-show="productList")
+				.col-md-6.col-lg-4(ng-repeat="product in productList")
+					.jumbotron
+						.text-center
+							label Product {{$index + 1}}
+				.col-md-6.col-lg-4
+					.jumbotron
+						.text-center
+							a.btn.btn-primary Cadastrar
+								i.material-icons add
+
+			.text-center(ng-show="!productList")
+				h3 Você não tem nenhum produto cadastrado
+				a.btn.btn-primary Cadastrar
+					i.material-icons add

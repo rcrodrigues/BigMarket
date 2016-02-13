@@ -74,7 +74,10 @@
 				navigator.geolocation.getCurrentPosition(successFunction, errorFunction,{timeout:1000});
 		};
 
-		
+		$scope.login = function() {
+			$('#modalLogin').modal('hide');
+			$location.path('/dashboard');
+		};
 
 	});
 
