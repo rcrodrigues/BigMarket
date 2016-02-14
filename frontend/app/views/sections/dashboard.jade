@@ -1,21 +1,26 @@
+.container-fluid
+	.row
+		.panel.panel-primary
+			.panel-heading
+				h3.panel-title Produtos cadastrados
+			.panel-body
+				.row
+					div(masonry, ng-if="productList")
+						.col-sm-6.col-lg-3.masonry-brick(ng-repeat="product in productList")
+							.jumbotron.noPadding.fill(ng-href="#")
+								img(ng-src="{{product.imagem}}")
+								.cardBottomInfo
+									{{product.nome}}
+								.cardTopRightInfo
+									.badge
+										{{product.preco | customCurrency}}
+						.col-sm-6.col-lg-3.masonry-brick
+							.jumbotron.noPadding.fill
+								.text-center
+									a.btn.btn-primary(href='#/cadastrarEditarProduto') Cadastrar
+										i.material-icons add
 
-.col-md-12
-	.panel.panel-primary
-		.panel-heading
-			h3.panel-title Produtos cadastrados
-		.panel-body
-			.row.col-md-12(ng-show="productList")
-				.col-md-6.col-lg-4(ng-repeat="product in productList")
-					.jumbotron
-						.text-center
-							label Product {{$index + 1}}
-				.col-md-6.col-lg-4
-					.jumbotron
-						.text-center
-							a.btn.btn-primary(href='#/cadastrarEditarProduto') Cadastrar
-								i.material-icons add
-
-			.text-center(ng-show="!productList")
-				h3 Você não tem nenhum produto cadastrado
-				a.btn.btn-primary(href='#/cadastrarEditarProduto') Cadastrar
-					i.material-icons add
+					.text-center(ng-if="!productList")
+						h3 Você não tem nenhum produto cadastrado
+						a.btn.btn-primary(href='#/cadastrarEditarProduto') Cadastrar
+							i.material-icons add
