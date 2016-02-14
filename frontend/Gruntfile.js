@@ -209,6 +209,25 @@ module.exports = function(grunt) {
 						],
 						dest: '<%= config.dist %>/scripts'
 					},
+					//masonry dependencies
+					{
+						expand: true,
+						flatten: true,
+						cwd: 'bower_components',
+						src: [
+							'jquery-bridget/jquery-bridget.js',
+							'ev-emitter/ev-emitter.js',
+							'desandro-matches-selector/matches-selector.js',
+							'fizzy-ui-utils/utils.js',
+							'outlayer/item.js',
+							'outlayer/outlayer.js',
+							'masonry/masonry.js',
+							'imagesloaded/imagesloaded.js',
+							'angular-masonry/angular-masonry.js',
+							'get-size/get-size.js'
+						],
+						dest: '<%= config.dist %>/scripts'
+					},
 
 					{
 						expand: true,
