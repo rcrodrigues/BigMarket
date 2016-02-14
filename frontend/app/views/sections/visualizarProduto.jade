@@ -7,4 +7,29 @@
 				.jumbotron
 					img.center(src="http://charges.uol.com.br/upload/bobagens/aguad.jpg")
 			.col-md-6
-				h1 R$ 180.20
+				h3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis nunc tempus eros faucibus gravida in a ante. Cras egestas vestibulum dolor, non viverra velit congue malesuada. Nullam tristique, ex et mollis convallis, nulla purus ullamcorper mi, vel pulvinar nulla enim nec augue. Etiam lobortis dolor ut finibus eleifend. Donec nibh massa, fermentum in ante in, maximus eleifend quam.
+				h3
+					b Preço: 
+					| R$ 180.20
+				h3
+					b Aceita troca: 
+					| Não
+				h3
+					b Produto novo: 
+					| Sim
+				h3
+					b Produto ainda disponível: 
+					| Sim
+				button.btn.btn-success.pull-right.always-bottom(type="button", ng-click="vendedor()")
+					i.material-icons check
+					span  Entrar em contato com o vendedor
+			.col-md-12
+				h1
+					b Comentários
+
+				textarea.comment-box(name="comentarios", id="comentarios")
+					| Comente aqui...
+
+				button.btn.btn-success(type="button", ng-click="comentar()")
+					i.material-icons check
+					span  Postar comentário
