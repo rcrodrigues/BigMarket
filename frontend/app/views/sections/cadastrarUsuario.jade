@@ -33,6 +33,31 @@
 					label(for="checkSenha") Confirme a Senha
 					input#checkSenha.form-control(ng-model="checkSenha", type="password", style="width:100%")
 
+				hr
+				h3 Endereço
+
+				.row
+
+					.form-group.col-md-6
+						label(for="logradouro") Logradouro
+						input#logradouro.form-control(ng-model="logradouro", type="password", style="width:100%")
+
+					.form-group.col-md-3
+						label(for="bairro") Bairro
+						input#bairro.form-control(ng-model="bairro", type="password", style="width:100%")
+
+					.form-group.col-md-3
+						label(for="numero") Numero
+						input#numero.form-control(ng-model="numero", type="password", style="width:100%")
+
+				.form-group
+					label(for="uf") Selecione um estado
+					select#uf.form-control(ng-model="uf", type="uf", style="width:100%")
+
+				.form-group
+					label(for="municipio") Selecione um município
+					select#municipio.form-control(ng-model="municipio", type="password", style="width:100%")
+
 				a.btn.btn-success.pull-right(type="button", ng-click="cadastrar()")
 					i.material-icons check
 					span  Cadastrar
