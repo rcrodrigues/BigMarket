@@ -21,15 +21,26 @@
 					b Produto ainda disponível: 
 					| Sim
 				button.btn.btn-success.pull-right.always-bottom(type="button", ng-click="vendedor()")
-					i.material-icons check
+					i.material-icons email
 					span  Entrar em contato com o vendedor
 			.col-md-12
 				h1
 					b Comentários
+				.panel.panel-primary
+					.panel-heading
+						h4.panel-title Novo Comentário
+					.panel-body
+						.col-md-6
+							.form-group
+								label.control-label(for="Preco") Nome
+								input#NomeComentarista.form-control(ng-model="comentarioInfo.NomeComentarista",type="text",style="width:100%")
+						.col-md-6
+							.form-group
+								label.control-label(for="Preco") E-mail
+								input#EmailComentarista.form-control(ng-model="comentarioInfo.EmailComentarista",type="email",style="width:100%")
+						textarea.comment-box(name="comentarios", id="comentarios",ng-model="comentarioInfo.comentario")
+							| Comente aqui...
 
-				textarea.comment-box(name="comentarios", id="comentarios")
-					| Comente aqui...
-
-				button.btn.btn-success(type="button", ng-click="comentar()")
-					i.material-icons check
-					span  Postar comentário
+						button.btn.btn-success.pull-right(type="button", ng-click="comentar()")
+							i.material-icons check
+							span  Postar comentário

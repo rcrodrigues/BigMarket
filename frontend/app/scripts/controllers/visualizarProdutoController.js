@@ -4,6 +4,11 @@
 
 	modulo.controller('VisualizarProdutoController', function($scope, $rootScope, $location) {
 
+		$scope.comentarioInfo = {
+			nomeComentarista: null,
+			emailComentarista: null,
+			comentario:null
+		};
 
 	});
 

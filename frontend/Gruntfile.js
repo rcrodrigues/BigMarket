@@ -151,7 +151,8 @@ module.exports = function(grunt) {
 							'bootstrap/dist/js/bootstrap.min.js',
 							'angular-bootstrap/ui-bootstrap.min.js',
 							'angular-bootstrap/ui-bootstrap-tpls.min.js',
-							'dropzone/downloads/dropzone.min.js'
+							'dropzone/downloads/dropzone.min.js',
+							'bootstrap-material-design/dist/material.min.js'
 						],
 						dest: '<%= config.dist %>/scripts'
 					}
@@ -172,7 +173,9 @@ module.exports = function(grunt) {
 							'bootstrap/dist/js/bootstrap.js',
 							'angular-bootstrap/ui-bootstrap.js',
 							'angular-bootstrap/ui-bootstrap-tpls.js',
-							'dropzone/downloads/dropzone.js'
+							'dropzone/downloads/dropzone.js',
+							'bootstrap-material-design/dist/js/material.js'
+
 						],
 						dest: '<%= config.dist %>/scripts',
 						rename: function(dest, src) {
@@ -236,7 +239,10 @@ module.exports = function(grunt) {
 						cwd: 'bower_components/',
 						src: [
 							'jquery-ui/themes/base/minified/jquery-ui.min.css',
-							'dropzone/downloads/css/dropzone.css'
+							'dropzone/downloads/css/dropzone.css',
+							'bootstrap-material-design/dist/css/bootstrap-material-design.css',
+							'bootstrap-material-design/dist/css/ripples.css'
+
 						],
 						dest: '<%= config.dist %>/styles'
 					},
