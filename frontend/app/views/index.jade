@@ -48,6 +48,11 @@ html(lang='pt-br')
 		
 		div#wrap
 			include header
+			article.message-box#message(ng-show="msg.show && (msg.target === 'body' || msg.target === 'all')")
+				div.alert.alert-dismissable(class="alert-{{msg.tipo}}", affix, data-offset-top="170")
+					a.close(type="button", ng-click="msg.show = false") ×
+					span.message-icon.glyphicon(ng-class="{'glyphicon-ok-sign' : msg.tipo === 'success', 'glyphicon-exclamation-sign' : msg.tipo === 'danger'}")
+					&nbsp{{msg.texto}}
 			ng-view
 				//- - var home= true
 
@@ -68,6 +73,8 @@ html(lang='pt-br')
 	script(src='scripts/controllers/dashboardController.js')
 	script(src='scripts/controllers/cadastrarEditarProdutoController.js')
 	script(src='scripts/controllers/visualizarProdutoController.js')
+
+	script(src='scripts/services/produtosService.js')
 
 
 	//-<!-- endbuild -->

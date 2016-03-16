@@ -4,6 +4,7 @@
 
 
 # Produtos
+POST	/produto                                Produtos.create
 GET		/produtos								Produtos.getAll
 
 # ROTA PARA OS ARQUIVOS ESTÁTICOS
