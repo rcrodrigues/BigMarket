@@ -7,6 +7,9 @@
 POST	/produto                                Produtos.create
 GET		/produtos								Produtos.getAll
 
+# Autenticacao
+POST	/login									Autenticacao.login
+
 # ROTA PARA OS ARQUIVOS ESTÁTICOS
 # IMPORTANTE!!! MANDER SEMPRE O BLOCO ABAIXO NO FINAL DO ARQUIVO!
 

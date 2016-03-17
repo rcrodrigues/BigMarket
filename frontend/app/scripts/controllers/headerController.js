@@ -2,9 +2,11 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('headerController', function($scope, $rootScope, $location) {
+	modulo.controller('headerController', function($scope, $rootScope, $location, headerService) {
 		$scope.itemLocality = "Lavras";
 		$scope.geocoder = null;
+		$scope.userLogin = null;
+		$scope.senha = null;
 
 		var codeLatLng = function(lat, lng) {
 
@@ -75,8 +77,18 @@
 		};
 
 		$scope.login = function() {
-			$('#modalLogin').modal('hide');
-			$location.path('/dashboard');
+
+			var loginInfo = {
+				login: $scope.userLogin,
+				senha: $scope.senha
+			};
+
+			headerService.login(loginInfo, function(data) {
+
+				$('#modalLogin').modal('hide');
+				$location.path('/dashboard');
+
+			});
 		};
 
 	});

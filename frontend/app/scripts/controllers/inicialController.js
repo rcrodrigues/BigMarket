@@ -15,6 +15,7 @@
 		};
 
 		$scope.productList = [];
+
 	});
 
 })();

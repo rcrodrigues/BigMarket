@@ -15,7 +15,6 @@ import play.db.jpa.GenericModel;
 public class ComentarioProduto extends GenericModel {
 	
 	@Id
-	@Column(name="comentario_produto_id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comentario_produto_comentario_produto_id_seq")
 	@SequenceGenerator(name = "comentario_produto_comentario_produto_id_seq", sequenceName = "mercadao.comentario_produto_comentario_produto_id_seq", allocationSize = 1, initialValue = 1)
 	public Integer id;

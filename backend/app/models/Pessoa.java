@@ -1,5 +1,8 @@
 package models;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,10 +17,9 @@ import play.db.jpa.GenericModel;
 
 @Entity
 @Table(name = "pessoa", schema = "mercadao")
-public class Pessoa extends GenericModel{
+public class Pessoa extends GenericModel {
 	
 	@Id
-	@Column(name="pessoa_id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pessoa_pessoa_id_seq")
 	@SequenceGenerator(name = "pessoa_pessoa_id_seq", sequenceName = "mercadao.pessoa_pessoa_id_seq", allocationSize = 1, initialValue = 1)
 	public Integer id;
@@ -32,5 +34,5 @@ public class Pessoa extends GenericModel{
 	public String cpf;
 	
 	public String telefone;
-
+	
 }
