@@ -15,7 +15,7 @@
 
 				.form-group
 					label(for="preco") Preço *
-					input#preco.form-control(ng-model="produto.preco", type="email")
+					input#preco.form-control(ng-model="produto.preco", type="number", min="0", step="0.01", data-number-to-fixed="2")
 
 				.form-group
 					label(for="aceitaTroca") Aceita outro produto em troca? *
@@ -54,6 +54,6 @@
 					i.material-icons navigate_before
 					span  Voltar
 
-				a.btn.btn-success.pull-right(type="button", ng-click="cadastrar()")
+				a.btn.btn-success.pull-right(type="button", ng-click="createProduto()")
 					i.material-icons check
 					span  Cadastrar

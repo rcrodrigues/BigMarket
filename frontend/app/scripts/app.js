@@ -50,10 +50,52 @@ var app = exports;
 
 			$.material.init();
 
+			$scope.msg = {
+				show: false,
+				target: 'all'
+			};
+		
+			function showMessage(texto, tipo, hideOnRouteChange, target) {
+
+				$scope.msg = {
+					texto: texto,
+					tipo: tipo,
+					show: true,
+					hideOnRouteChange: hideOnRouteChange !== undefined ? hideOnRouteChange : true,
+					target: target !== undefined ? target : 'all' // 'body' or 'modal' or 'all'
+				};
+								
+			}
+
+			function hideMessage() {
+
+				$scope.msg.show = false;
+
+			}
+
+
 			// Evento de mudanca de rota
 			$scope.$on('$routeChangeSuccess', function(scope, next, current) {
 
+				if (!$scope.msg)
+					return;
 
+				if (!$scope.msg.hideOnRouteChange)
+					$scope.msg.hideOnRouteChange = true;
+				else
+					hideMessage();
+
+
+			});
+
+			// Evento de exibição de mensagem
+			$scope.$on('showMessageEvent', function(event, texto, tipo, hideOnRouteChange, target) {
+				showMessage(texto, tipo, hideOnRouteChange, target);
+			});
+
+			// Evento para remover mensagem
+			$scope.$on('hideMessageEvent', function(event) {
+				hideMessage();
 			});
 
 		}

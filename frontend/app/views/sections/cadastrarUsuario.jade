@@ -6,32 +6,36 @@
 			form#cadastrarUsuario
 
 				.form-group
+					label(for="nome") Usuário
+					input#nome.form-control(ng-model="usuario.login", type="text")
+
+				.form-group
 					label(for="nome") Nome
-					input#nome.form-control(ng-model="usuario.pessoa.nome", type="text", style="width:100%")
+					input#nome.form-control(ng-model="usuario.pessoa.nome", type="text")
 
 				.form-group
 					label(for="dataNascimento") Data de Nascimento
-					input#dataNascimento.form-control(ng-model="usuario.pessoa.dataNascimento", type="date", style="width:100%")
+					input#dataNascimento.form-control(ng-model="usuario.pessoa.dataNascimento", type="date")
 
 				.form-group
 					label(for="email") Email
-					input#email.form-control(ng-model="usuario.pessoa.email", type="email", style="width:100%")
+					input#email.form-control(ng-model="usuario.pessoa.email", type="email")
 
 				.form-group
 					label(for="cpf") CPF
-					input#cpf.form-control(ng-model="usuario.pessoa.cpf", type="text", style="width:100%")
+					input#cpf.form-control(ng-model="usuario.pessoa.cpf", type="text")
 
 				.form-group
 					label(for="telefone") Telefone
-					input#telefone.form-control(ng-model="usuario.pessoa.telefone", type="text", style="width:100%")
+					input#telefone.form-control(ng-model="usuario.pessoa.telefone", type="text")
 
 				.form-group
 					label(for="senha") Senha
-					input#senha.form-control(ng-model="usuario.pessoa.senha", type="password", style="width:100%")
+					input#senha.form-control(ng-model="usuario.senha", type="password")
 
 				.form-group
 					label(for="checkSenha") Confirme a Senha
-					input#checkSenha.form-control(ng-model="checkSenha", type="password", style="width:100%")
+					input#checkSenha.form-control(ng-model="checkSenha", type="password")
 
 				hr
 				h3 Endereço
@@ -40,24 +44,24 @@
 
 					.form-group.col-md-6
 						label(for="logradouro") Logradouro
-						input#logradouro.form-control(ng-model="logradouro", type="password", style="width:100%")
+						input#logradouro.form-control(ng-model="endereco.logradouro", type="text")
 
 					.form-group.col-md-3
 						label(for="bairro") Bairro
-						input#bairro.form-control(ng-model="bairro", type="password", style="width:100%")
+						input#bairro.form-control(ng-model="endereco.bairro", type="text")
 
 					.form-group.col-md-3
 						label(for="numero") Numero
-						input#numero.form-control(ng-model="numero", type="password", style="width:100%")
+						input#numero.form-control(ng-model="endereco.numero", type="text")
 
 				.form-group
 					label(for="uf") Selecione um estado
-					select#uf.form-control(ng-model="uf", type="uf", style="width:100%")
+					select#uf.form-control(ng-model="endereco.estado")
 
 				.form-group
 					label(for="municipio") Selecione um município
-					select#municipio.form-control(ng-model="municipio", type="password", style="width:100%")
+					select#municipio.form-control(ng-model="endereco.municipio")
 
-				a.btn.btn-success.pull-right(type="button", ng-click="cadastrar()")
+				a.btn.btn-success.pull-right(type="button", ng-click="createUsuario()")
 					i.material-icons check
 					span  Cadastrar

@@ -1,4 +1,4 @@
-#modalLogin.modal.fade(data-backdrop='static')
+#modalLogin.modal.fade(data-backdrop='static', data-ng-controller='headerController')
 	.modal-dialog
 		.modal-content
 
@@ -21,8 +21,8 @@
 			.modal-footer
 
 				a.text-center(style='margin-right:5px', href='#/cadastrarUsuario').
-					Seja um vendedor!
-				a.btn.btn-success(type="button", ng-click="login()", href='#/dashboard', ng-disabled="!!loginForm.$error.required")
+					Ser um vendedor!
+				a.btn.btn-success(type="button", ng-click="login()", ng-disabled="!!loginForm.$error.required")
 					i.material-icons check
 					span  Entrar
 				

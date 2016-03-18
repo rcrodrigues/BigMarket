@@ -2,7 +2,7 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('headerController', function($scope, $rootScope, $location) {
+	modulo.controller('headerController', function($scope, $rootScope, $location, headerService) {
 		
 		$scope.userLoginInfo = {
 			username: null,
@@ -81,8 +81,26 @@
 		};
 
 		$scope.login = function() {
-			$('#modalLogin').modal('hide');
-			$location.path('/dashboard');
+
+			headerService.login($scope.userLoginInfo,
+
+				function(response) {
+
+					if(response.success) {
+
+						$('#modalLogin').modal('hide');
+						$location.path('/dashboard');
+
+					} else {
+
+						$scope.$emit('showMessageEvent', response.message, 'danger');
+
+					}
+
+				}
+
+			);
+
 		};
 
 		$scope.estaNaDashboard = function(){
