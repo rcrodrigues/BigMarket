@@ -1,6 +1,6 @@
 .container-fluid
 	.row
-		.col-sm-3
+		.col-sm-3(style="padding-right:0px")
 			.jumbotron
 				.form-horizontal
 					fieldset
@@ -78,7 +78,7 @@
 
 		.col-sm-9(masonry)
 			.col-md-6.col-lg-3.masonry-brick(ng-repeat="product in productList")
-				.jumbotron.noPadding.fill(ng-href="#/")
+				a.jumbotron.noPadding.fill(ng-href="#/visualizarProduto")
 					img(ng-src="{{product.imagem}}")
 					.cardBottomInfo
 						{{product.nome}}

@@ -3,6 +3,12 @@
 	var modulo = angular.module('mercadaoModule');
 
 	modulo.controller('headerController', function($scope, $rootScope, $location) {
+		
+		$scope.userLoginInfo = {
+			username: null,
+			password: null
+		};
+
 		$scope.itemLocality = "Lavras";
 		$scope.geocoder = null;
 
@@ -77,6 +83,14 @@
 		$scope.login = function() {
 			$('#modalLogin').modal('hide');
 			$location.path('/dashboard');
+		};
+
+		$scope.estaNaDashboard = function(){
+			if($location.path() == '/dashboard'){
+				return true;
+			}else{
+				return false;
+			}
 		};
 
 	});

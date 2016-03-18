@@ -5,24 +5,24 @@
 			.modal-header
 				
 				h4.modal-title Acesso ao Sistema de Vendas
-					i.material-icons.pull-right(data-dismiss="modal") close
+					button.close(data-dismiss="modal") x
 
 			.modal-body
 
-				.form
+				.form(name="loginForm")
 					.form-group
 						label(for="login") Usuário:
-						input.form-control(type="text", size="15", name="login", ng-model="username", autofocus)
+						input.form-control(type="text", size="15", name="login", ng-model="userLoginInfo.username", autofocus, required)
 
 					.form-group
 						label(for="senha") Senha:
-						input.form-control(type="password", size="15", name="senha", ng-model="password")
+						input.form-control(type="password", size="15", name="senha", ng-model="userLoginInfo.password", required)
 
 			.modal-footer
 
 				a.text-center(style='margin-right:5px', href='#/cadastrarUsuario').
-					Ser um vendedor!
-				a.btn.btn-success(type="button", ng-click="login()", href='#/dashboard')
+					Seja um vendedor!
+				a.btn.btn-success(type="button", ng-click="login()", href='#/dashboard', ng-disabled="!!loginForm.$error.required")
 					i.material-icons check
 					span  Entrar
 				
