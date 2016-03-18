@@ -2,6 +2,7 @@ package models;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,11 +19,11 @@ import play.db.jpa.GenericModel;
 public class Produto extends GenericModel {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto_produto_id_seq")
-	@SequenceGenerator(name = "produto_produto_id_seq", sequenceName = "mercadao.produto_produto_id_seq", allocationSize = 1, initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto_id_seq")
+	@SequenceGenerator(name = "produto_id_seq", sequenceName = "mercadao.produto_id_seq", allocationSize = 1, initialValue = 1)
 	public Integer id;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	public Usuario usuario;
 	
 	public String nome;

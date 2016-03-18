@@ -83,12 +83,25 @@
 				senha: $scope.senha
 			};
 
-			headerService.login(loginInfo, function(data) {
+			headerService.login(loginInfo,
 
-				$('#modalLogin').modal('hide');
-				$location.path('/dashboard');
+				function(response) {
 
-			});
+					if(response.success) {
+
+						$('#modalLogin').modal('hide');
+						$location.path('/dashboard');
+
+					} else {
+
+						$scope.$emit('showMessageEvent', response.message, 'danger');
+
+					}
+
+				}
+
+			);
+
 		};
 
 	});

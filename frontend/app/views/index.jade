@@ -51,7 +51,8 @@ html(lang='pt-br')
 			article.message-box#message(ng-show="msg.show && (msg.target === 'body' || msg.target === 'all')")
 				div.alert.alert-dismissable(class="alert-{{msg.tipo}}", affix, data-offset-top="170")
 					a.close(type="button", ng-click="msg.show = false") ×
-					span.message-icon.glyphicon(ng-class="{'glyphicon-ok-sign' : msg.tipo === 'success', 'glyphicon-exclamation-sign' : msg.tipo === 'danger'}")
+					span.material-icons(ng-if='msg.tipo === "success"') check_circle 
+					span.material-icons(ng-if='msg.tipo === "danger"') error
 					&nbsp{{msg.texto}}
 			ng-view
 				//- - var home= true
@@ -76,4 +77,5 @@ html(lang='pt-br')
 
 	script(src='scripts/services/produtosService.js')
 	script(src='scripts/services/headerService.js')
+	script(src='scripts/services/usuariosService.js')
 	//-<!-- endbuild -->

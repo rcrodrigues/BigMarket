@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,11 +22,11 @@ import play.db.jpa.GenericModel;
 public class Usuario extends GenericModel {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_usuario_id_seq")
-	@SequenceGenerator(name = "usuario_usuario_id_seq", sequenceName = "mercadao.usuario_usuario_id_seq", allocationSize = 1, initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_id_seq")
+	@SequenceGenerator(name = "usuario_id_seq", sequenceName = "mercadao.usuario_id_seq", allocationSize = 1, initialValue = 1)
 	public Integer id;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL)
 	public Pessoa pessoa;
 	
 	public byte[] senha;

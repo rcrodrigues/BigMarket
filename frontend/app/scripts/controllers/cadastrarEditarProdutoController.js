@@ -10,14 +10,12 @@
 
 			produtosService.createProduto($scope.produto,
 
-				function(sucesso) {
+				function(response) {
 
-					$scope.$emit('showMessageEvent', sucesso, 'success');
-
-				},
-				function(errorMessage) {
-
-					$scope.$emit('showMessageEvent', errorMessage, 'danger');
+					if(response.success)
+						$scope.$emit('showMessageEvent', response.message, 'success');
+					else
+						$scope.$emit('showMessageEvent', response.message, 'danger');
 
 				}
 
