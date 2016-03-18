@@ -44,23 +44,23 @@
 
 					.form-group.col-md-6
 						label(for="logradouro") Logradouro
-						input#logradouro.form-control(ng-model="logradouro", type="password")
+						input#logradouro.form-control(ng-model="endereco.logradouro", type="text")
 
 					.form-group.col-md-3
 						label(for="bairro") Bairro
-						input#bairro.form-control(ng-model="bairro", type="password")
+						input#bairro.form-control(ng-model="endereco.bairro", type="text")
 
 					.form-group.col-md-3
 						label(for="numero") Numero
-						input#numero.form-control(ng-model="numero", type="password")
+						input#numero.form-control(ng-model="endereco.numero", type="text")
 
 				.form-group
 					label(for="uf") Selecione um estado
-					select#uf.form-control(ng-model="uf", type="uf")
+					select#uf.form-control(ng-model="endereco.estado")
 
 				.form-group
 					label(for="municipio") Selecione um município
-					select#municipio.form-control(ng-model="municipio", type="password")
+					select#municipio.form-control(ng-model="endereco.municipio")
 
 				a.btn.btn-success.pull-right(type="button", ng-click="createUsuario()")
 					i.material-icons check

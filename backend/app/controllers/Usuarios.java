@@ -3,11 +3,17 @@ package controllers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import models.Endereco;
 import models.Usuario;
 import play.mvc.Controller;
 import utils.Message;
 
 public class Usuarios extends Controller {
+	
+	public class PostInfo {
+		public Usuario usuario;
+		public Endereco endereco;
+	}
 
 	public static void create() {
 		
@@ -15,7 +21,13 @@ public class Usuarios extends Controller {
 		
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").create();
 		
-		Usuario usuario = gson.fromJson(body, Usuario.class);
+		PostInfo postInfo = gson.fromJson(body, PostInfo.class);
+		
+		Endereco endereco = postInfo.endereco;
+		endereco.save();
+		
+		Usuario usuario = postInfo.usuario;
+		usuario.pessoa.endereco = endereco;
 		
 		usuario.save();
 		renderJSON(new Message("Usuario cadastrado com sucesso.", true));

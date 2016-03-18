@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -29,31 +30,51 @@ public class Usuario extends GenericModel {
 	@OneToOne(cascade=CascadeType.ALL)
 	public Pessoa pessoa;
 	
-	public byte[] senha;
+	public String senha;
 	
 	public String login;
 	
-	public void setSenha(String senha) {
-		this.senha = getSha512(senha);
+	public Usuario save() {
+		
+		try {
+			setSenha(this.senha);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return super.save();
+		
+	}
+	
+	public void setSenha(String senha) throws Exception {
+		this.senha = hashText(senha);
 	}
 
-	public static Usuario findByLoginESenha(String login, String password) {
-		return Usuario.find("byLoginAndSenha", login, getSha512(password)).first();			
+	public static Usuario findByLoginESenha(String login, String senha) throws Exception {
+		return Usuario.find("byLoginAndSenha", login, hashText(senha)).first();			
 	}
 
 	public static Usuario findByLogin(String login) {
 		return Usuario.find("byLogin", login).first();
 	}
 
-	public static byte[] getSha512(String value) {
-		try {
-			return MessageDigest.getInstance("SHA-512").digest(value.getBytes("UTF-8"));
-		}
-		catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException(e);
-		}
-		catch (UnsupportedEncodingException e) {
-			throw new RuntimeException(e);
-		}
-	}
+	public static String convertByteToHex(byte data[]) {
+		
+        StringBuffer hexData = new StringBuffer();
+        for (int byteIndex = 0; byteIndex < data.length; byteIndex++)
+            hexData.append(Integer.toString((data[byteIndex] & 0xff) + 0x100, 16).substring(1));
+        
+        return hexData.toString();
+        
+    }
+    
+    public static String hashText(String textToHash) throws Exception {
+    	
+        final MessageDigest sha512 = MessageDigest.getInstance("SHA-512");
+        sha512.update(textToHash.getBytes());
+        
+        return convertByteToHex(sha512.digest());
+        
+    }
 }

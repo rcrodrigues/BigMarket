@@ -22,7 +22,7 @@ public class Autenticacao extends Controller {
 		public String senha;
 	}
 	
-	public static void login() {
+	public static void login() throws Exception {
 
 		String body = request.current().params.get("body");
 		

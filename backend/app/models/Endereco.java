@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import play.db.jpa.Model;
+import play.db.jpa.GenericModel;
 
 
 @Entity
 @Table(schema = "mercadao", name = "endereco")
-public class Endereco extends Model {
+public class Endereco extends GenericModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "endereco_id_seq")
@@ -25,5 +25,6 @@ public class Endereco extends Model {
 	public String bairro;
 	public String cep;
 	public String municipio;
+	public String estado;
 
 }

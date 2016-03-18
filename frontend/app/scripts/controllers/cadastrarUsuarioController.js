@@ -8,17 +8,27 @@
 
 		$scope.usuario = {};
 		$scope.usuario.pessoa = {};
+		$scope.endereco = {};
+
+		$scope.postInfo = {};
 
 		$scope.createUsuario = function() {
 
-			usuariosService.createUsuario($scope.usuario,
+			$scope.postInfo = {
+				usuario: $scope.usuario,
+				endereco: $scope.endereco
+			};
+
+			usuariosService.createUsuario($scope.postInfo,
 
 				function(response) {
 
-					if(response.success)
+					if(response.success) {
 						$scope.$emit('showMessageEvent', response.message, 'success');
-					else
+						$location.path('/inicial');
+					} else {
 						$scope.$emit('showMessageEvent', response.message, 'danger');
+					}
 
 				}
 
