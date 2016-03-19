@@ -24,5 +24,6 @@ public class Midia extends GenericModel {
 	@ManyToOne(cascade = CascadeType.ALL)
 	public Produto produto;
 	
+	@Column(columnDefinition="TEXT")
 	public String dado;
 }

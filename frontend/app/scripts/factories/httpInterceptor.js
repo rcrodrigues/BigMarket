@@ -20,9 +20,9 @@
 					
 				} else if (rejection.status == HTTPStatus.UNAUTHORIZED) {
 
-					$rootScope.removeUsuario();
+					$rootScope.auth.username = '';
 
-					location.href = config.LOGIN_REDIRECT_URL;
+					location.href = config.BASE_URL;
 
 					return rejection;
 

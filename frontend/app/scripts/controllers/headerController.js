@@ -89,7 +89,14 @@
 					if(response.success) {
 
 						$rootScope.auth.username = $scope.userLoginInfo.username;
+
+						$scope.userLoginInfo = {
+							username: null,
+							password: null
+						};
+
 						$('#modalLogin').modal('hide');
+						
 						$location.path('/dashboard');
 
 					} else {
