@@ -2,7 +2,7 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('InicialController', function($scope, $rootScope, $location) {
+	modulo.controller('InicialController', function($scope, $rootScope, $location, midiasService) {
 		//console.log('teste de console - InicialController');
 		$scope.produtcFilter = {
 			name: null,
@@ -14,7 +14,17 @@
 			troca: true
 		};
 
-		$scope.productList = [];
+		$scope.productList = {};
+
+		$scope.listProducts = function() {
+
+			midiasService.getAll(function(response) {
+				$scope.productList = response;
+			});
+
+		};
+
+		$scope.listProducts();
 
 	});
 
