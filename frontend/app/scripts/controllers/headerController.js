@@ -2,7 +2,7 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('headerController', function($scope, $rootScope, $location, headerService) {
+	modulo.controller('headerController', function($scope, $rootScope, $location, headerService, $log) {
 		
 		$scope.userLoginInfo = {
 			username: null,
@@ -88,6 +88,7 @@
 
 					if(response.success) {
 
+						$rootScope.auth.username = $scope.userLoginInfo.username;
 						$('#modalLogin').modal('hide');
 						$location.path('/dashboard');
 
@@ -103,13 +104,71 @@
 
 		};
 
-		$scope.estaNaDashboard = function(){
-			if($location.path() == '/dashboard'){
+		$scope.estaNaDashboard = function() {
+
+			if($location.path() == '/dashboard') {
 				return true;
-			}else{
+			} else {
 				return false;
 			}
+
 		};
+
+		$scope.logout = function() {
+
+			headerService.logout(
+
+				function(response) {
+
+					if(response.success) {
+
+						$rootScope.auth.username = '';
+						$location.path('/inicial');
+
+					} else {
+
+						$scope.$emit('showMessageEvent', response.message, 'danger');
+
+					}
+
+				}
+
+			);
+
+
+		};
+
+		$scope.isAuthenticated = function() {
+
+			if($rootScope.auth.username) {
+
+				$log.debug($rootScope.auth.username);
+				$location.path('/dashboard');
+
+			} else {
+
+				headerService.isAuthenticated(
+					function(response) {
+						if(response.success) {
+
+							$rootScope.auth.username = response.message;
+							$location.path('/dashboard');
+
+						} else {
+
+							$location.path('/inicial');
+
+						}
+
+					}
+
+				);
+
+			}
+
+		};
+
+		$scope.isAuthenticated();
 
 	});
 
