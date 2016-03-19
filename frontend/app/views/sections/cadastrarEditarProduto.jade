@@ -1,48 +1,49 @@
 .container-fluid
 	.panel.panel-primary
 		.panel-heading
-			h3.panel-title Cadastrar Produto
+			h3 Cadastrar Produto
 		.panel-body
 			form#cadastrarProduto
+				.row
+					.col-md-9
+						.form-group
+							label(for="nome") Nome *
+							input#nome.form-control(ng-model="produto.nome", type="text")
 
-				.form-group
-					label(for="nome") Nome *
-					input#nome.form-control(ng-model="produto.nome", type="text")
+						.form-group
+							label(for="descricao") Descrição *
+							input#descricao.form-control(ng-model="produto.descricao", type="text")
 
-				.form-group
-					label(for="descricao") Descrição *
-					input#descricao.form-control(ng-model="produto.descricao", type="text")
+						.form-group
+							label(for="preco") Preço *
+							input#preco.form-control(ng-model="produto.preco", type="number", min="0", step="0.01", data-number-to-fixed="2")
+					.col-md-3
+						.form-group
+							label(for="aceitaTroca") Aceita outro produto em troca? *
+							.togglebutton
+								label
+									input(type='checkbox', checked='')
+									| Não
+									span.toggle(style="margin-left:13px;")
+									| Sim
 
-				.form-group
-					label(for="preco") Preço *
-					input#preco.form-control(ng-model="produto.preco", type="number", min="0", step="0.01", data-number-to-fixed="2")
+						.form-group
+							label(for="produtoNovo") O produto é novo? *
+							.togglebutton
+								label
+									input(type='checkbox', checked='')
+									| Não
+									span.toggle(style="margin-left:13px;")
+									| Sim
 
-				.form-group
-					label(for="aceitaTroca") Aceita outro produto em troca? *
-					.togglebutton
-						label
-							input(type='checkbox', checked='')
-							| Não
-							span.toggle(style="margin-left:13px;")
-							| Sim
-
-				.form-group
-					label(for="produtoNovo") O produto é novo? *
-					.togglebutton
-						label
-							input(type='checkbox', checked='')
-							| Não
-							span.toggle(style="margin-left:13px;")
-							| Sim
-
-				.form-group
-					label(for="vendido") O produto já foi vendido? *
-					.togglebutton
-						label
-							input(type='checkbox')
-							| Não
-							span.toggle(style="margin-left:13px;")
-							| Sim
+						.form-group
+							label(for="vendido") O produto já foi vendido? *
+							.togglebutton
+								label
+									input(type='checkbox')
+									| Não
+									span.toggle(style="margin-left:13px;")
+									| Sim
 
 				.form-group.is-fileinput.is-empty
 					label.control-label(for='imagem') Imagem do produto *
