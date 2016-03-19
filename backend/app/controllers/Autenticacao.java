@@ -64,9 +64,9 @@ public class Autenticacao extends Controller {
 	public static void isAuthenticated() {
 		
 		if(session.get("username") == null) {
-			unauthorized();
+			renderJSON(new Message("Não existe usuário logado", false));
 		} else {
-			renderJSON(new Message("Usuário já está logado", true));
+			renderJSON(new Message(session.get("username"), true));
 		}
 		
 	}

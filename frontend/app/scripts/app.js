@@ -49,6 +49,17 @@ var app = exports;
 		function($scope, $rootScope) {
 
 			$.material.init();
+			$rootScope.auth = {};
+			$rootScope.auth.isLoggedIn = false;
+			$rootScope.auth.username = '';
+
+			$rootScope.isLoggedIn = function() {
+				if($rootScope.auth.username === '') {
+					return false;
+				} else {
+					return true;
+				}
+			};
 
 			$scope.msg = {
 				show: false,
