@@ -18,6 +18,12 @@
 
 		$scope.listProducts();
 
+		$scope.viewProduct = function(produto) {
+
+			$location.path("/visualizarProduto").search('id', produto.id);
+
+		};
+
 	});
 
 })();
