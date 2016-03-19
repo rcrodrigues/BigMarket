@@ -9,6 +9,7 @@ GET		/produtos								Produtos.getAll
 
 # Midias
 GET		/midias									Midias.getAll
+GET		/midia/{id}								Midias.find
 
 # Autenticacao
 POST	/login									Autenticacao.login

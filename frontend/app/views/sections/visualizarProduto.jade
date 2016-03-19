@@ -1,25 +1,31 @@
 .container-fluid
 	.panel.panel-primary
 		.panel-heading
-			h3.panel-title Água Desidratada
+			h2.panel-title {{product.produto.nome}}
 		.panel-body
 			.col-md-6
 				.jumbotron
-					img.center(src="http://charges.uol.com.br/upload/bobagens/aguad.jpg")
+					img.center(ng-src="data:image/png;base64,{{product.dado}}")
 			.col-md-6
-				h3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis nunc tempus eros faucibus gravida in a ante. Cras egestas vestibulum dolor, non viverra velit congue malesuada. Nullam tristique, ex et mollis convallis, nulla purus ullamcorper mi, vel pulvinar nulla enim nec augue. Etiam lobortis dolor ut finibus eleifend. Donec nibh massa, fermentum in ante in, maximus eleifend quam.
+				h3 {{product.produto.descricao}}
 				h3
 					b Preço: 
-					| R$ 180.20
+					| {{product.produto.preco | customCurrency}}
 				h3
-					b Aceita troca: 
-					| Não
+					b.pull-left Aceita troca: 
+					span.material-icons(ng-if='product.produto.aceitaTroca') check_circle 
+					span.material-icons(ng-if='!product.produto.aceitaTroca') cancel
+					br
 				h3
-					b Produto novo: 
-					| Sim
+					b.pull-left Produto novo: 
+					span.material-icons(ng-if='product.produto.novo') check_circle 
+					span.material-icons(ng-if='!product.produto.novo') cancel
+					br
 				h3
-					b Produto ainda disponível: 
-					| Sim
+					b.pull-left Produto ainda disponível: 
+					span.material-icons(ng-if='product.produto.vendido') check_circle 
+					span.material-icons(ng-if='!product.produto.vendido') cancel
+					br
 				button.btn.btn-success.pull-right.always-bottom(type="button", ng-click="vendedor()")
 					i.material-icons email
 					span  Entrar em contato com o vendedor
