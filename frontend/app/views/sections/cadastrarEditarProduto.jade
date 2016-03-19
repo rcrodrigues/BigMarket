@@ -21,7 +21,7 @@
 					label(for="aceitaTroca") Aceita outro produto em troca? *
 					.togglebutton
 						label
-							input(type='checkbox', checked='')
+							input(type='checkbox', checked='', ng-model='produto.aceitaTroca')
 							| Não
 							span.toggle(style="margin-left:13px;")
 							| Sim
@@ -30,7 +30,7 @@
 					label(for="produtoNovo") O produto é novo? *
 					.togglebutton
 						label
-							input(type='checkbox', checked='')
+							input(type='checkbox', checked='', ng-model='produto.novo')
 							| Não
 							span.toggle(style="margin-left:13px;")
 							| Sim
@@ -39,7 +39,7 @@
 					label(for="vendido") O produto já foi vendido? *
 					.togglebutton
 						label
-							input(type='checkbox')
+							input(type='checkbox', ng-model='produto.vendido')
 							| Não
 							span.toggle(style="margin-left:13px;")
 							| Sim
