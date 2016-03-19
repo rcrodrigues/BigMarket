@@ -2,13 +2,14 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('CadastrarUsuarioController', function($scope, $http, $rootScope, $location, usuariosService) {
+	modulo.controller('CadastrarUsuarioController', function($scope, $http, $rootScope, $location, usuariosService, correiosServices) {
 
 		$('#modalLogin').modal('hide');
 
 		$scope.usuario = {};
 		$scope.usuario.pessoa = {};
 		$scope.endereco = {};
+		$scope.senhaInvalida = true;
 
 		$scope.postInfo = {};
 
@@ -38,19 +39,19 @@
 
 		$scope.initCorreioServices = function() {
 			
-			$.blockUI();
-			$http.get('http://viacep.com.br/ws/'+$scope.endereco.cep+'/json/')
-				.success( function(data) {
+			correiosServices.checkCEP($scope.endereco.cep,
+			
+				function(response){
 					
-					$.unblockUI();
-					$scope.endereco.estado = data.uf;
-					$scope.endereco.municipio = data.localidade;
-					
-				})
-				.error( function(error) {
-					$.unblockUI();
-					$scope.$emit('showMessageEvent', error , 'danger');
-				});
+					if(!response.erro){
+						$scope.endereco.estado = response.uf;
+						$scope.endereco.municipio = response.localidade;
+					} else {
+						$scope.$emit('showMessageEvent', response, 'danger');
+					}
+				}
+				
+			);
 				
 		};
 		
@@ -58,6 +59,9 @@
 			if($scope.usuario.senha && $scope.checkSenha){
 				if($scope.usuario.senha != $scope.checkSenha){
 					$scope.$emit('showMessageEvent','Senha não confere', 'warning');
+					$scope.senhaInvalida = true;
+				} else {
+					$scope.senhaInvalida = false;
 				}
 			}
 		};

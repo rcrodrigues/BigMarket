@@ -18,7 +18,7 @@
 					.col-md-4
 						.form-group
 							label(for="checkSenha") Confirme a Senha
-							input#checkSenha.form-control(ng-model="checkSenha", type="password", ng-change="checkIgualdade()")
+							input#checkSenha.form-control(ng-model="checkSenha", type="password", ng-blur="checkIgualdade()")
 				hr
 				h4 Dados Básicos			
 				.form-group
@@ -76,6 +76,6 @@
 							label(for="municipio") Municipio
 							input#municipio.form-control(ng-model="endereco.municipio")
 				.row
-					a.btn.btn-success.pull-right(type="button", ng-click="createUsuario()", ng-disabled="")
+					a.btn.btn-success.pull-right(type="button", ng-click="createUsuario()", ng-disabled="senhaInvalida")
 						i.material-icons check
 						span  Cadastrar
