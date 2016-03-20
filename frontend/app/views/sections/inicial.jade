@@ -21,14 +21,14 @@
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.novo", ng-change="productFilter.novo = !productFIlter.usado")
+												input(type="checkbox", checked, ng-model="productFilter.novo", ng-change="changeProdutoNovo(true)")
 												span.checkbox-material
 													span.check
 												|     Novo
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.usado", ng-change="productFIler.usado = !productFilter.novo")
+												input(type="checkbox", checked, ng-model="productFilter.usado", ng-change="changeProdutoNovo()")
 												span.checkbox-material
 													span.check
 												|     Usado
@@ -39,14 +39,14 @@
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.venda")
+												input(type="checkbox", checked, ng-model="productFilter.venda", ng-change="changeProdutoVenda(true)")
 												span.checkbox-material 
 													span.check
 												|     Venda
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.troca")
+												input(type="checkbox", checked, ng-model="productFilter.troca", ng-change="changeProdutoVenda()")
 												span.checkbox-material
 													span.check
 												|     Troca

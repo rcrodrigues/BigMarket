@@ -22,6 +22,23 @@
 			});
 
 		};
+        
+        
+        $scope.changeProdutoNovo = function(novo) {
+            if(novo){
+                $scope.productFilter.usado = !$scope.productFilter.novo;
+            } else {
+                $scope.productFilter.novo = !$scope.productFilter.usado;
+            }
+        };
+        
+        $scope.changeProdutoVenda = function(venda){
+            if(venda){
+                $scope.productFilter.troca = !$scope.productFilter.venda;
+            } else {
+                $scope.productFilter.venda = !$scope.productFilter.troca;
+            }
+        };
 
 		$scope.listProducts();
 
