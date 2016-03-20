@@ -2,7 +2,7 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('VisualizarProdutoController', function($scope, $rootScope, $location, midiasService, comentariosService) {
+	modulo.controller('VisualizarProdutoController', function($scope, $rootScope, $location, midiasService, comentariosService, usuariosService) {
 
 		$scope.comentarioInfo = {
 			nomeComentador: null,
@@ -20,6 +20,7 @@
 			midiasService.find(id, function(response) {
 				$scope.product = response;
 				$scope.findComentarios($scope.product.produto);
+				getUserEmail();
 			});
 
 		};
@@ -60,6 +61,14 @@
 				}
 
 			);
+
+		};
+
+		var getUserEmail = function() {
+
+			usuariosService.getUserEmail($scope.product.produto.id, function(response) {
+				$scope.userEmail = response.email;
+			});
 
 		};
 

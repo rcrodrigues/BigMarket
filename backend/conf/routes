@@ -21,6 +21,7 @@ GET		/isAuthenticated						Autenticacao.isAuthenticated
 
 # Usuário
 POST	/usuario								Usuarios.create
+GET		/usuario/{idProduto}/email				Usuarios.getUserEmail
 
 # Comentário
 POST	/comentario								ComentariosProduto.create

@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import models.Endereco;
+import models.Produto;
 import models.Usuario;
 import play.mvc.Controller;
 import utils.Message;
@@ -31,6 +32,16 @@ public class Usuarios extends Controller {
 		
 		usuario.save();
 		renderJSON(new Message("Usuario cadastrado com sucesso.", true));
+		
+	}
+	
+	public static void getUserEmail(Integer idProduto) {
+		
+		Produto produto = Produto.findById(idProduto);
+		
+		Usuario usuario = produto.usuario;
+		
+		renderJSON(usuario.pessoa);
 		
 	}
 	

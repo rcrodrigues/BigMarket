@@ -26,7 +26,7 @@
 					span.material-icons(ng-if='product.produto.vendido') check_circle 
 					span.material-icons(ng-if='!product.produto.vendido') cancel
 					br
-				button.btn.btn-success.pull-right.always-bottom(type="button", ng-click="vendedor()")
+				a.btn.btn-success.pull-right.always-bottom(type="button", ng-href='mailto:{{userEmail}}')
 					i.material-icons email
 					span  Entrar em contato com o vendedor
 			.col-md-12
