@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,11 +24,12 @@ public class Produto extends GenericModel {
 	@SequenceGenerator(name = "produto_id_seq", sequenceName = "mercadao.produto_id_seq", allocationSize = 1, initialValue = 1)
 	public Integer id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	public Usuario usuario;
 	
 	public String nome;
 	
+	@Column(columnDefinition="TEXT")
 	public String descricao;
 	
 	public Double preco;
@@ -41,5 +43,13 @@ public class Produto extends GenericModel {
 	public Boolean novo;
 	
 	public Boolean vendido;
+	
+	public static List<Produto> findByUser(Usuario usuario) {
+		
+		List<Produto> produtos = Produto.find("byUsuario", usuario).fetch();
+		
+		return produtos;
+		
+	}
 	
 }

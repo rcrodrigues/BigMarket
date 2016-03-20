@@ -10,7 +10,7 @@
 
 		$scope.listProducts = function() {
 
-			midiasService.getAll(function(response) {
+			midiasService.getAllByUser($rootScope.auth.username, function(response) {
 				$scope.productList = response;
 			});
 
@@ -22,6 +22,21 @@
 
 			$location.path("/visualizarProduto").search('id', produto.id);
 
+		};
+
+		$scope.deleteProduct = function(produto) {
+			midiasService.delete(produto.id, function(response) {
+				if(response.success) {
+
+					$scope.$emit('showMessageEvent', response.message, 'success');
+					$scope.listProducts();
+
+				} else {
+
+					$scope.$emit('showMessageEvent', response.message, 'danger');
+
+				}
+			});
 		};
 
 	});

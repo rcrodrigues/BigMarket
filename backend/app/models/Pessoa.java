@@ -40,7 +40,7 @@ public class Pessoa extends GenericModel {
 	
 	public String telefone;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id", referencedColumnName = "id")
 	public Endereco endereco;
 	

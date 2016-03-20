@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,4 +28,12 @@ public class Midia extends GenericModel {
 	
 	@Column(columnDefinition="TEXT")
 	public String dado;
+	
+	public static List<Midia> findByProduct(Produto produto) {
+		
+		List<Midia> midias = Midia.find("byProduto", produto).fetch();
+		
+		return midias;
+		
+	}
 }
