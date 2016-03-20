@@ -24,6 +24,26 @@
 
 		};
 
+		this.updateProduto = function(produto, successCallback, errorCallback) {
+
+			$http.post(config.BASE_URL + 'produto/update', produto)
+				.success(function(data){
+
+					if(successCallback)
+						successCallback.call(null,data);
+
+				})
+				.error(function(data) {
+
+					if(!errorCallback)
+						$rootScope.$broadcast('showMessageEvent', data, 'danger');
+					else
+						errorCallback.call(null, data);
+
+				});
+
+		};
+
 	});
 
 })();

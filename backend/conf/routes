@@ -7,6 +7,7 @@
 POST	/produto                                Produtos.create
 GET		/produtos								Produtos.getAll
 GET		/produto/{id}/comentarios				ComentariosProduto.findAllByProduct
+POST	/produto/update							Produtos.update
 
 # Midias
 POST	/midias									Midias.getAll

@@ -49,7 +49,7 @@
 				function(response) {
 
 					if(response.success) {
-						$scope.$emit('showMessageEvent', response.message, 'success');
+						$scope.$emit('showMessageEvent', response.message, 'success', false);
 						$scope.findComentarios($scope.product.produto);
 
 						$scope.comentarioInfo = {
@@ -59,7 +59,7 @@
 						};
 
 					} else {
-						$scope.$emit('showMessageEvent', response.message, 'danger');
+						$scope.$emit('showMessageEvent', response.message, 'danger', false);
 					}
 
 				}

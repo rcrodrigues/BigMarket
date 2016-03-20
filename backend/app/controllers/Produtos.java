@@ -52,5 +52,32 @@ public class Produtos extends Controller {
 		renderJSON(produtos);
 
 	}
+	
+	public static void update() {
+		
+		String body = request.current().params.get("body");
+		
+		Gson gson = new GsonBuilder().create();
+		
+		CreationObject creationObject = gson.fromJson(body, CreationObject.class);
+		
+		Produto produto = Produto.findById(creationObject.produto.id);
+		
+		produto.nome = creationObject.produto.nome;
+		produto.descricao = creationObject.produto.descricao;
+		produto.preco = creationObject.produto.preco;
+		produto.aceitaTroca = creationObject.produto.aceitaTroca;
+		produto.novo = creationObject.produto.novo;
+		produto.vendido = creationObject.produto.vendido;
+		
+		produto.save();
+		
+		Midia midia = Midia.findByProduct(produto);
+		midia.dado = creationObject.midia;
+		midia.save();
+		
+		renderJSON(new Message("Produto atualizado com sucesso!", true));
+		
+	}
 
 }

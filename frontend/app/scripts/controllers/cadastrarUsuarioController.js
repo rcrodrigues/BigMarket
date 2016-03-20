@@ -25,10 +25,10 @@
 				function(response) {
 
 					if(response.success) {
-						$scope.$emit('showMessageEvent', response.message, 'success');
+						$scope.$emit('showMessageEvent', response.message, 'success', false);
 						$location.path('/inicial');
 					} else {
-						$scope.$emit('showMessageEvent', response.message, 'danger');
+						$scope.$emit('showMessageEvent', response.message, 'danger', false);
 					}
 
 				}
@@ -47,7 +47,7 @@
 						$scope.endereco.estado = response.uf;
 						$scope.endereco.municipio = response.localidade;
 					} else {
-						$scope.$emit('showMessageEvent', response, 'danger');
+						$scope.$emit('showMessageEvent', response, 'danger', false);
 					}
 				}
 				
@@ -58,7 +58,7 @@
 		$scope.checkIgualdade = function(){
 			if($scope.usuario.senha && $scope.checkSenha){
 				if($scope.usuario.senha != $scope.checkSenha){
-					$scope.$emit('showMessageEvent','Senha não confere', 'warning');
+					$scope.$emit('showMessageEvent','Senha não confere', 'danger');
 					$scope.senhaInvalida = true;
 				} else {
 					$scope.senhaInvalida = false;

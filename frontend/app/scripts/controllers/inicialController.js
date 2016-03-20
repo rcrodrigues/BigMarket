@@ -10,12 +10,24 @@
 
 		$scope.listProducts = function() {
 
-			var filtro = {
-				nome: $scope.productFilter.nome,
-				preco: $scope.productFilter.preco,
-				aceitaTroca: $scope.productFilter.troca ? true : null,
-				novo: $scope.productFilter.novo ? true : null
-			};
+			var filtro = {};
+
+			filtro.nome = $scope.productFilter.nome;
+			filtro.preco = $scope.productFilter.preco;
+
+			if($scope.productFilter.troca && $scope.productFilter.venda)
+				filtro.aceitaTroca = null;
+			else if($scope.productFilter.troca)
+				filtro.aceitaTroca = true;
+			else if($scope.productFilter.venda)
+				filtro.aceitaTroca = false;
+
+			if($scope.productFilter.novo && $scope.productFilter.usado)
+				filtro.novo = null;
+			else if($scope.productFilter.novo)
+				filtro.novo = true;
+			else if($scope.productFilter.usado)
+				filtro.novo = false;
 
 			midiasService.getAll(filtro, function(response) {
 				$scope.productList = response;

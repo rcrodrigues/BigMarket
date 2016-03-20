@@ -6,6 +6,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import models.ComentarioProduto;
 import models.FiltroProduto;
 import models.Midia;
 import models.Produto;
@@ -60,6 +61,12 @@ public class Midias extends Controller {
     public static void delete(Integer id) {
     	
     	Midia midia = Midia.findById(id);
+    	
+    	List<ComentarioProduto> comentarios = ComentarioProduto.findAllByProduct(midia.produto);
+    	
+    	for(ComentarioProduto comentario : comentarios)
+    		comentario.delete();
+    	
     	midia.delete();
     	
     	renderJSON(new Message("Produto deletado com sucesso.", true));

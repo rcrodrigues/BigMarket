@@ -29,11 +29,11 @@ public class Midia extends GenericModel {
 	@Column(columnDefinition="TEXT")
 	public String dado;
 	
-	public static List<Midia> findByProduct(Produto produto) {
+	public static Midia findByProduct(Produto produto) {
 		
-		List<Midia> midias = Midia.find("byProduto", produto).fetch();
+		Midia midia = Midia.find("byProduto", produto).first();
 		
-		return midias;
+		return midia;
 		
 	}
 }
