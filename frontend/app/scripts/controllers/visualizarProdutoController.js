@@ -2,28 +2,32 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('VisualizarProdutoController', function($scope, $rootScope, $location, midiasService, comentariosService, usuariosService) {
+	modulo.controller('VisualizarProdutoController', function($scope, $routeParams, $rootScope, $location, midiasService, comentariosService, usuariosService) {
 
 		$scope.comentarioInfo = {
 			nomeComentador: null,
 			emailComentador: null,
 			comentario:null
 		};
-
+		
+		$scope.isAuthenticated = false;
 		$scope.product = {};
+		
+		$scope.findProduct = function(id) {
+			if(id){
+				midiasService.find(id, function(response) {
+					$scope.product = response;
+					$scope.findComentarios($scope.product.produto);
+					getUserEmail();
+				});
+			}
+		};
+		
+		$scope.findProduct($routeParams.produtoId);
+		
 		$scope.comentarios = {};
 
 		var idMidiaProduto = $location.search().id;
-
-		$scope.findProduct = function(id) {
-
-			midiasService.find(id, function(response) {
-				$scope.product = response;
-				$scope.findComentarios($scope.product.produto);
-				getUserEmail();
-			});
-
-		};
 
 		$scope.findComentarios = function(produto) {
 
@@ -69,10 +73,7 @@
 			usuariosService.getUserEmail($scope.product.produto.id, function(response) {
 				$scope.userEmail = response.email;
 			});
-
 		};
-
-		$scope.findProduct(idMidiaProduto);
 
 	});
 

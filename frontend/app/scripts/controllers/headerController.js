@@ -11,6 +11,7 @@
 
 		$scope.itemLocality = "Lavras";
 		$scope.geocoder = null;
+        $rootScope.auth.username = '';
 
 		var codeLatLng = function(lat, lng) {
 

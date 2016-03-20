@@ -18,12 +18,6 @@
 
 		$scope.listProducts();
 
-		$scope.viewProduct = function(produto) {
-
-			$location.path("/visualizarProduto").search('id', produto.id);
-
-		};
-
 		$scope.deleteProduct = function(produto) {
 			midiasService.delete(produto.id, function(response) {
 				if(response.success) {
@@ -38,7 +32,6 @@
 				}
 			});
 		};
-
 	});
 
 })();
