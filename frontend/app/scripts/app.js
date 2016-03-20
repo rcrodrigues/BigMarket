@@ -3,15 +3,22 @@ var app = exports;
 
 (function($) {
 
-	var modulo = angular.module('mercadaoModule', ['ngRoute', 'ui.bootstrap', 'wu.masonry', 'imageupload']);
+	var modulo = angular.module('mercadaoModule', ['ngRoute', 'ui.bootstrap', 'wu.masonry', 'imageupload','blockUI']);
 
-	modulo.config(['$routeProvider', '$httpProvider', '$compileProvider',
+	modulo.config(['$routeProvider', '$httpProvider', '$compileProvider','blockUIConfig',
 
-		function($routeProvider, $httpProvider, $compileProvider){
+		function($routeProvider, $httpProvider, $compileProvider, blockUIConfig){
+            
+            // Change the default overlay message
+            blockUIConfig.message = 'Carregando...';
 
+            // Change the default delay to 100ms before the blocking is visible
+            blockUIConfig.delay = 0;
+ 
+            
 			// register the interceptor as a service, intercepts ALL angular ajax http calls
 			$httpProvider.interceptors.push('httpInterceptor');
-
+            
 			$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|data):/);
 
 			$routeProvider
