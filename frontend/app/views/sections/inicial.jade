@@ -9,33 +9,11 @@
 							.col-md-12
 								.form-group.label-floating.is-empty
 									label.control-label(for="nomeProduto") Nome do Produto
-									input#nomeProduto.form-control(ng-model="productFilter.nome",type="text",style="width:100%")
-							.col-md-12
-								.form-group.label-static.is-empty
-									label.control-label(for="categoria") Categoria
-									select#categoria.form-control(ng-model="productFilter.categoria",style="width:100%")
-										option(value=1).
-											Animais e acessórios
-										option(value=2).
-											Bebes e crianças
-										option(value=3).
-											Música e hobbies
-										option(value=4).
-											Moda e beleza
-										option(value=5).
-											Para a sua casa
-										option(value=6).
-											Esportes
-										option(value=7).
-											Eletrônicos e celulares
-										option(value=8).
-											Imóveis
-										option(value=9).
-											Veículos e Barcos
+									input#nomeProduto.form-control(ng-model="productFilter.nome",type="text")
 							.col-md-12
 								.form-group
 									label.control-label(for="Preco") Valor Máximo
-									input#Preco.form-control(ng-model="productFilter.preco",type="number",style="width:100%")
+									input#Preco.form-control(ng-model="productFilter.preco",type="number")
 							.col-md-12
 								.form-group
 									.col-md-12.noPadding
@@ -73,7 +51,7 @@
 													span.check
 												|     Troca
 							.col-md-12
-								a.btn.btn-primary.pull-right Pesquisar
+								a.btn.btn-primary.pull-right(ng-click='listProducts()') Pesquisar
 									i.material-icons search
 
 		.col-sm-9(masonry)

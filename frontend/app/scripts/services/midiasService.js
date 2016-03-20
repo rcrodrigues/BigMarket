@@ -4,9 +4,9 @@
 
 	modulo.service('midiasService', function($http, $rootScope, config) {
 
-		this.getAll = function(successCallback, errorCallback) {
+		this.getAll = function(filtro, successCallback, errorCallback) {
 
-			$http.get(config.BASE_URL + 'midias')
+			$http.post(config.BASE_URL + 'midias', filtro)
 				.success(function(data){
 
 					if(successCallback)

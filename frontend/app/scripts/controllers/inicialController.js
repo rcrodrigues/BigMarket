@@ -4,21 +4,20 @@
 
 	modulo.controller('InicialController', function($scope, $rootScope, $location, midiasService) {
 		//console.log('teste de console - InicialController');
-		$scope.produtcFilter = {
-			name: null,
-			categoria: null,
-			preco: null,
-			novo: true,
-			usado: true,
-			venda: true,
-			troca: true
-		};
+		$scope.productFilter = {};
 
 		$scope.productList = {};
 
 		$scope.listProducts = function() {
 
-			midiasService.getAll(function(response) {
+			var filtro = {
+				nome: $scope.productFilter.nome,
+				preco: $scope.productFilter.preco,
+				aceitaTroca: $scope.productFilter.troca ? true : null,
+				novo: $scope.productFilter.novo ? true : null
+			};
+
+			midiasService.getAll(filtro, function(response) {
 				$scope.productList = response;
 			});
 

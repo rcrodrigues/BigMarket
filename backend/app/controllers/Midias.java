@@ -3,6 +3,10 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import models.FiltroProduto;
 import models.Midia;
 import models.Produto;
 import models.Usuario;
@@ -13,7 +17,21 @@ public class Midias extends Controller {
 
     public static void getAll() {
     	
-    	renderJSON(Midia.findAll());
+    	String body = request.current().params.get("body");
+		
+		Gson gson = new GsonBuilder().create();
+		
+		FiltroProduto filtroProduto = gson.fromJson(body, FiltroProduto.class);
+		
+		List<Produto> produtos = Produto.findByFiltro(filtroProduto);
+		List<Midia> midias = new ArrayList<>();
+    	
+		for(Produto produto : produtos) {
+    		Midia midia = Midia.find("byProduto", produto).first();
+    		midias.add(midia);
+    	}
+
+    	renderJSON(midias);
     	
     }
     

@@ -9,7 +9,7 @@ GET		/produtos								Produtos.getAll
 GET		/produto/{id}/comentarios				ComentariosProduto.findAllByProduct
 
 # Midias
-GET		/midias									Midias.getAll
+POST	/midias									Midias.getAll
 GET		/midias/{username}						Midias.getAllByUser
 GET		/midia/{id}								Midias.find
 GET		/midia/{id}/delete						Midias.delete

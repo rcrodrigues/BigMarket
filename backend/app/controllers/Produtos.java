@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import controllers.Usuarios.PostInfo;
+import models.FiltroProduto;
 import models.Midia;
 import models.Produto;
 import models.Usuario;
@@ -51,6 +52,5 @@ public class Produtos extends Controller {
 		renderJSON(produtos);
 
 	}
-
 
 }
