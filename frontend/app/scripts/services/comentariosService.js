@@ -2,11 +2,11 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.service('usuariosService', function($http, $rootScope, config) {
+	modulo.service('comentariosService', function($http, $rootScope, config) {
 
-		this.createUsuario = function(usuario, successCallback, errorCallback) {
+		this.create = function(comentario, successCallback, errorCallback) {
 
-			$http.post(config.BASE_URL + 'usuario', usuario)
+			$http.post(config.BASE_URL + 'comentario', comentario)
 				.success(function(data){
 
 					if(successCallback)
@@ -24,9 +24,9 @@
 
 		};
 
-		this.getUserEmail = function(username, successCallback, errorCallback) {
+		this.getAllByProduct = function(idProduto, successCallback, errorCallback) {
 
-			$http.get(config.BASE_URL + 'usuario/' + username + '/email')
+			$http.get(config.BASE_URL + 'produto/' + idProduto + '/comentarios')
 				.success(function(data){
 
 					if(successCallback)
@@ -43,7 +43,7 @@
 				});
 
 		};
-     
+
 	});
-    
+
 })();

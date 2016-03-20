@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,9 +23,10 @@ public class ComentarioProduto extends GenericModel {
 	@SequenceGenerator(name = "comentario_produto_id_seq", sequenceName = "mercadao.comentario_produto_id_seq", allocationSize = 1, initialValue = 1)
 	public Integer id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	public Produto produto;
 	
+	@Column(columnDefinition="TEXT")
 	public String comentario;
 	
 	@Column(name="nome_comentador")
@@ -32,4 +35,12 @@ public class ComentarioProduto extends GenericModel {
 	@Column(name="email_comentador")
 	public String emailComentador;
 
+	
+	public static List<ComentarioProduto> findAllByProduct(Produto produto) {
+		
+		List<ComentarioProduto> comentarios = ComentarioProduto.find("byProduto", produto).fetch();
+		
+		return comentarios;
+		
+	}
 }
