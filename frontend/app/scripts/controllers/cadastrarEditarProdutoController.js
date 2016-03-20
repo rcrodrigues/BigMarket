@@ -35,6 +35,13 @@
 				midia: $scope.productImage.resized.dataURL
 			};
 
+			if($scope.creationObject.produto.aceitaTroca === undefined)
+				$scope.creationObject.produto.aceitaTroca = false;
+			if($scope.creationObject.produto.novo === undefined)
+				$scope.creationObject.produto.novo = false;
+			if($scope.creationObject.produto.vendido === undefined)
+				$scope.creationObject.produto.vendido = false;
+
 			produtosService.createProduto($scope.creationObject,
 
 				function(response) {
@@ -59,6 +66,13 @@
 				username: $rootScope.auth.username,
 				midia: $scope.productImage.resized.dataURL
 			};
+
+			if($scope.creationObject.produto.aceitaTroca === undefined)
+				$scope.creationObject.produto.aceitaTroca = false;
+			if($scope.creationObject.produto.novo === undefined)
+				$scope.creationObject.produto.novo = false;
+			if($scope.creationObject.produto.vendido === undefined)
+				$scope.creationObject.produto.vendido = false;
 
 			produtosService.updateProduto($scope.creationObject,
 
