@@ -5,7 +5,7 @@
 		.panel-body
 			form#cadastrarProduto
 				.row
-					.col-md-9
+					.col-md-4
 						.form-group
 							label(for="nome") Nome *
 							input#nome.form-control(ng-model="produto.nome", type="text")
@@ -44,13 +44,18 @@
 									| Não
 									span.toggle(style="margin-left:13px;")
 									| Sim
-
-				.form-group.is-fileinput.is-empty
-					label.control-label(for='imagem') Imagem do produto *
-					input#imagem(type='file')
-					input.form-control(type='text', readonly='', placeholder='Clique aqui e adicione uma imagem ao produto')
-					span.material-input
+					
+					.col-md-5
+						.jumbotron
+							img.center(ng-show='productImage', ng-src='{{productImage.resized.dataURL}}')
+						.form-group.is-fileinput.is-empty
+							label.control-label(for='imagem') Imagem do produto *
+							input#imagem(type='file', accept='image/*', image='productImage', resize-max-height='500', resize-max-width='300', resize-quality='0.7')
+							input.form-control(type='text', readonly='', placeholder='Clique aqui e adicione uma imagem ao produto')
+							span.material-input
 				
+				
+				// img(ng-show='image2', ng-src='{{image2.resized.dataURL}}')
 				a.btn.btn-default(type="button", ng-href="#/dashboard")
 					i.material-icons navigate_before
 					span  Voltar

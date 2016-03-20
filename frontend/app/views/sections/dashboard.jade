@@ -8,7 +8,7 @@
 					.div(masonry, ng-show="productList")
 						.col-sm-6.col-lg-3.masonry-brick(ng-repeat="product in productList")
 							a.jumbotron.noPadding.fill(ng-click='viewProduct(product)')
-								img(ng-src="data:image/png;base64,{{product.dado}}")
+								img(ng-src="{{product.dado}}")
 								.cardBottomInfo
 									{{product.produto.nome}}
 								.cardTopRightInfo

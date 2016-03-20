@@ -43,14 +43,14 @@
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.novo")
+												input(type="checkbox", checked, ng-model="productFilter.novo", ng-change="productFilter.novo = !productFIlter.usado")
 												span.checkbox-material
 													span.check
 												|     Novo
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.usado")
+												input(type="checkbox", checked, ng-model="productFilter.usado", ng-change="productFIler.usado = !productFilter.novo")
 												span.checkbox-material
 													span.check
 												|     Usado
@@ -79,7 +79,7 @@
 		.col-sm-9(masonry)
 			.col-md-6.col-lg-3.masonry-brick(ng-repeat="product in productList")
 				a.jumbotron.noPadding.fill(ng-click='viewProduct(product)')
-					img(ng-src="data:image/png;base64,{{product.dado}}")
+					img(ng-src="{{product.dado}}")
 					.cardBottomInfo
 						{{product.produto.nome}}
 					.cardTopRightInfo

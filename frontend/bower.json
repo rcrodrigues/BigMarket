@@ -12,7 +12,8 @@
     "jquery": "2.1.3",
     "nouislider": "~8.3.0",
     "underscore": "~1.8.3",
-    "bootstrap-material-design": "^0.5.9"
+    "bootstrap-material-design": "^0.5.9",
+    "angular-resize": "https://github.com/Mischi/angularjs-imageupload-directive.git"
   },
   "resolutions": {
     "bootstrap": "~3.3.6"

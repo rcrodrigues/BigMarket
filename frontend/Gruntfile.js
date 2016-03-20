@@ -228,7 +228,9 @@ module.exports = function(grunt) {
 							'masonry/masonry.js',
 							'imagesloaded/imagesloaded.js',
 							'angular-masonry/angular-masonry.js',
-							'get-size/get-size.js'
+							'get-size/get-size.js',
+                            'angular-resize/public/javascripts/imageupload.js'
+                           
 						],
 						dest: '<%= config.dist %>/scripts'
 					},

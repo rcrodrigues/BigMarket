@@ -6,13 +6,14 @@
 
 		$scope.produto = {};
 		$scope.creationObject = {};
+		$scope.productImage = {};
 
 		$scope.createProduto = function() {
-
+			
 			$scope.creationObject = {
 				produto: $scope.produto,
 				username: $rootScope.auth.username,
-				midia: $scope.midia
+				midia: $scope.productImage.resized.dataURL
 			};
 
 			produtosService.createProduto($scope.creationObject,
@@ -31,29 +32,7 @@
 			);
 
 		};
-
-		var handleFileSelect = function(evt) {
-			var files = evt.target.files;
-			var file = files[0];
-
-			if (files && file) {
-				var reader = new FileReader();
-
-				reader.onload = function(readerEvt) {
-					var binaryString = readerEvt.target.result;
-					$scope.midia = btoa(binaryString);
-				};
-
-				reader.readAsBinaryString(file);
-			}
-		};
-
-		if (window.File && window.FileReader && window.FileList && window.Blob) {
-			document.getElementById('imagem').addEventListener('change', handleFileSelect, false);
-		} else {
-			alert('The File APIs are not fully supported in this browser.');
-		}
-
+		
 	});
 
 })();
