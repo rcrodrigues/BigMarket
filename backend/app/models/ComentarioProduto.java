@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,4 +35,12 @@ public class ComentarioProduto extends GenericModel {
 	@Column(name="email_comentador")
 	public String emailComentador;
 
+	
+	public static List<ComentarioProduto> findAllByProduct(Produto produto) {
+		
+		List<ComentarioProduto> comentarios = ComentarioProduto.find("byProduto", produto).fetch();
+		
+		return comentarios;
+		
+	}
 }

@@ -6,6 +6,7 @@
 # Produtos
 POST	/produto                                Produtos.create
 GET		/produtos								Produtos.getAll
+GET		/produto/{id}/comentarios				ComentariosProduto.findAllByProduct
 
 # Midias
 GET		/midias									Midias.getAll
@@ -20,6 +21,9 @@ GET		/isAuthenticated						Autenticacao.isAuthenticated
 
 # Usuário
 POST	/usuario								Usuarios.create
+
+# Comentário
+POST	/comentario								ComentariosProduto.create
 
 # ROTA PARA OS ARQUIVOS ESTÁTICOS
 # IMPORTANTE!!! MANDER SEMPRE O BLOCO ABAIXO NO FINAL DO ARQUIVO!
