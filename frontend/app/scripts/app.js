@@ -19,7 +19,15 @@ var app = exports;
 					templateUrl: 'views/sections/visualizarProduto.html',
 					controller: 'VisualizarProdutoController'
 				})
+                .when('/visualizarProduto/:produtoId', {
+					templateUrl: 'views/sections/visualizarProduto.html',
+					controller: 'VisualizarProdutoController'
+				})
 				.when('/cadastrarEditarProduto', {
+					templateUrl: 'views/sections/cadastrarEditarProduto.html',
+					controller: 'CadastrarEditarProdutoController'
+				})
+                .when('/cadastrarEditarProduto/:produtoId', {
 					templateUrl: 'views/sections/cadastrarEditarProduto.html',
 					controller: 'CadastrarEditarProdutoController'
 				})

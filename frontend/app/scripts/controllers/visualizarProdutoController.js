@@ -2,27 +2,26 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('VisualizarProdutoController', function($scope, $rootScope, $location, midiasService) {
+	modulo.controller('VisualizarProdutoController', function($scope, $routeParams, $rootScope, $location, midiasService) {
 
 		$scope.comentarioInfo = {
 			nomeComentarista: null,
 			emailComentarista: null,
 			comentario:null
 		};
-
+        
+        $scope.isAuthenticated = false;
 		$scope.product = {};
-
-		var idMidiaProduto = $location.search().id;
-
+        
 		$scope.findProduct = function(id) {
-
-			midiasService.find(id, function(response) {
-				$scope.product = response;
-			});
-
+            if(id){
+                midiasService.find(id, function(response) {
+                    $scope.product = response;
+                });
+            }
 		};
 
-		$scope.findProduct(idMidiaProduto);
+		$scope.findProduct($routeParams.produtoId);
 
 	});
 
