@@ -26,9 +26,10 @@ Tecnologias Utilizadas:
 
 Documentos:
 
-* Análise de Requisitos -  ../O Mercadao - Documento de Requisitos.pdf
-* Diagrama de Classes - ../O mercadao - Diagrama de Classes.pdf
-* Diagrama de Sequência - caminho/para/arquivo.extensao
+* Análise de Requisitos -  ../O_Mercadao-Documento_de_Requisitos.pdf
+* Diagrama de Classes - ../O_mercadao-Diagrama_de_Classes.pdf
+* Diagrama de Sequência - ../O_mercadao-Diagrama_de_Sequencia.pdf
+* Protótipo de Interface - **/prototipo de interface/*
 * Código Fonte Interface - **/frontend/*
 * Código Fonte Servidor - **/backend/*
 * Script de criação do Banco de Dados - **/database/databaseSchemaSQL.sql
