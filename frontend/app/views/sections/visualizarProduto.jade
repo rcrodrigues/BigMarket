@@ -23,8 +23,8 @@
 					br
 				h3
 					b.pull-left Produto ainda disponível: 
-					span.material-icons(ng-if='product.produto.vendido') check_circle 
-					span.material-icons(ng-if='!product.produto.vendido') cancel
+					span.material-icons(ng-if='!product.produto.vendido') check_circle 
+					span.material-icons(ng-if='product.produto.vendido') cancel
 					br
 				a.btn.btn-success.pull-right.always-bottom(type="button", ng-href='mailto:{{userEmail}}')
 					i.material-icons email
