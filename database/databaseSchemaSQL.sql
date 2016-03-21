@@ -1,5 +1,5 @@
 
-CREATE TABLE mercadao_sql.endereco (
+CREATE TABLE mercadao.endereco (
                 id INTEGER NOT NULL,
                 bairro VARCHAR(255),
                 cep VARCHAR(255),
@@ -12,7 +12,7 @@ CREATE TABLE mercadao_sql.endereco (
 );
 
 
-CREATE TABLE mercadao_sql.pessoa (
+CREATE TABLE mercadao.pessoa (
                 id INTEGER NOT NULL,
                 cpf VARCHAR(255),
                 datanascimento TIMESTAMP,
@@ -24,7 +24,7 @@ CREATE TABLE mercadao_sql.pessoa (
 );
 
 
-CREATE TABLE mercadao_sql.usuario (
+CREATE TABLE mercadao.usuario (
                 id INTEGER NOT NULL,
                 login VARCHAR(255),
                 senha VARCHAR(255),
@@ -33,7 +33,7 @@ CREATE TABLE mercadao_sql.usuario (
 );
 
 
-CREATE TABLE mercadao_sql.produto (
+CREATE TABLE mercadao.produto (
                 id INTEGER NOT NULL,
                 aceitatroca BOOLEAN,
                 descricao TEXT,
@@ -47,7 +47,7 @@ CREATE TABLE mercadao_sql.produto (
 );
 
 
-CREATE TABLE mercadao_sql.midia (
+CREATE TABLE mercadao.midia (
                 id INTEGER NOT NULL,
                 dado TEXT,
                 produto_id INTEGER NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE mercadao_sql.midia (
 );
 
 
-CREATE TABLE mercadao_sql.comentario_produto (
+CREATE TABLE mercadao.comentario_produto (
                 id INTEGER NOT NULL,
                 comentario TEXT,
                 email_comentador VARCHAR(255),
@@ -65,37 +65,37 @@ CREATE TABLE mercadao_sql.comentario_produto (
 );
 
 
-ALTER TABLE mercadao_sql.pessoa ADD CONSTRAINT fk_maf0qcpkgi78dxmw8a3eo3js9
+ALTER TABLE mercadao.pessoa ADD CONSTRAINT fk_maf0qcpkgi78dxmw8a3eo3js9
 FOREIGN KEY (endereco_id)
-REFERENCES mercadao_sql.endereco (id)
+REFERENCES mercadao.endereco (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE mercadao_sql.usuario ADD CONSTRAINT fk_r3paqktjbbb5iuok1mvu0s8xg
+ALTER TABLE mercadao.usuario ADD CONSTRAINT fk_r3paqktjbbb5iuok1mvu0s8xg
 FOREIGN KEY (pessoa_id)
-REFERENCES mercadao_sql.pessoa (id)
+REFERENCES mercadao.pessoa (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE mercadao_sql.produto ADD CONSTRAINT fk_3a959l62rnfaarmbsfqulvdge
+ALTER TABLE mercadao.produto ADD CONSTRAINT fk_3a959l62rnfaarmbsfqulvdge
 FOREIGN KEY (usuario_id)
-REFERENCES mercadao_sql.usuario (id)
+REFERENCES mercadao.usuario (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE mercadao_sql.comentario_produto ADD CONSTRAINT fk_4asulfpfjdo7d6r5juvhyee2y
+ALTER TABLE mercadao.comentario_produto ADD CONSTRAINT fk_4asulfpfjdo7d6r5juvhyee2y
 FOREIGN KEY (produto_id)
-REFERENCES mercadao_sql.produto (id)
+REFERENCES mercadao.produto (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE mercadao_sql.midia ADD CONSTRAINT fk_ow0b097s96oscfq8trvrekfva
+ALTER TABLE mercadao.midia ADD CONSTRAINT fk_ow0b097s96oscfq8trvrekfva
 FOREIGN KEY (produto_id)
-REFERENCES mercadao_sql.produto (id)
+REFERENCES mercadao.produto (id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
