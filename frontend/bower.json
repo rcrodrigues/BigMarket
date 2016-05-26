@@ -1,5 +1,5 @@
 {
-  "name": "Solicitação de Supressão",
+  "name": "mercadao",
   "version": "0.0.1",
   "dependencies": {
     "angular": "~1.4.7",
