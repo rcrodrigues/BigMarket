@@ -16,8 +16,8 @@
 									input#Preco.form-control(name="preco", ng-model="productFilter.preco", ui-money-mask)
 							.col-md-12
 									.form-group
-										label.control-label(for='select111') Select
-										select#select111.form-control(name='select111', ng-model="productFilter.tipo")
+										label.control-label(for='select') Tipo do produto
+										select#select.form-control(name='select', ng-model="productFilter.tipo")
 											option Eletrodomésticos
 											option Celulares e Telefones
 											option Informática
@@ -73,7 +73,7 @@
 								a.btn.btn-danger.pull-left(ng-click='limparFiltro()') Limpar
 									i.material-icons clear
 
-		.col-sm-9(masonry)
+		.col-sm-9(ng-if="productList.length > 0", masonry)
 			.col-md-6.col-lg-3.masonry-brick(ng-repeat="product in productList")
 				a.jumbotron.noPadding.fill(ng-href='#/visualizarProduto/{{product.id}}')
 					img(ng-src="{{product.dado}}")
@@ -82,5 +82,6 @@
 					.cardTopRightInfo
 						.badge
 							{{product.produto.preco | customCurrency}}
-					
+		.col-sm-9.text-center(ng-if="productList.length <= 0")
+			h2 Não foram encontrados produtos a serem exibidos.
 					
