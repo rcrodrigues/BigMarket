@@ -13,7 +13,8 @@
     "underscore": "~1.8.3",
     "bootstrap-material-design": "^0.5.9",
     "angular-resize": "https://github.com/Mischi/angularjs-imageupload-directive.git",
-    "angular-block-ui": "^0.2.2"
+    "angular-block-ui": "^0.2.2",
+    "angular-input-masks": "^2.4.0"
   },
   "resolutions": {
     "bootstrap": "~3.3.6"
