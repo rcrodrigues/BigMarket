@@ -4,26 +4,26 @@
 			h3(ng-hide='isUpdate') Cadastrar Produto
 			h3(ng-show='isUpdate') Editar Produto
 		.panel-body
-			form#cadastrarProduto
+			form#cadastrarProduto(name='cadastrarProduto')
 				.row
 					.col-md-4
 						.form-group
 							label(for="nome") Nome *
-							input#nome.form-control(ng-model="produto.nome", type="text")
+							input#nome.form-control.required(ng-model="produto.nome", type="text", required)
 
 						.form-group
 							label(for="descricao") Descrição *
-							input#descricao.form-control(ng-model="produto.descricao", type="text")
+							input#descricao.form-control.required(ng-model="produto.descricao", type="text", required)
 
 						.form-group
 							label(for="preco") Preço *
-							input#preco.form-control(ng-model="produto.preco", type="number", min="0", step="0.01", data-number-to-fixed="2")
+							input#preco.form-control(ng-model="produto.preco", ui-money-mask, required)
 					.col-md-3
 						.form-group
 							label(for="aceitaTroca") Aceita outro produto em troca? *
 							.togglebutton
 								label
-									input(type='checkbox', checked='', ng-model='produto.aceitaTroca')
+									input(type='checkbox', checked='', ng-model='produto.aceitaTroca', required)
 									| Não
 									span.toggle(style="margin-left:13px;")
 									| Sim
@@ -32,7 +32,7 @@
 							label(for="produtoNovo") O produto é novo? *
 							.togglebutton
 								label
-									input(type='checkbox', checked='', ng-model='produto.novo')
+									input(type='checkbox', checked='', ng-model='produto.novo', required)
 									| Não
 									span.toggle(style="margin-left:13px;")
 									| Sim
@@ -51,7 +51,7 @@
 							img.center(ng-show='productImage', ng-src='{{productImage.resized.dataURL}}')
 						.form-group.is-fileinput.is-empty
 							label.control-label(for='imagem') Imagem do produto *
-							input#imagem(type='file', accept='image/*', image='productImage', resize-max-height='500', resize-max-width='300', resize-quality='0.7')
+							input#imagem(type='file', accept='image/*', image='productImage', resize-max-height='500', resize-max-width='300', resize-quality='0.7', required)
 							input.form-control(type='text', readonly='', placeholder='Clique aqui e adicione uma imagem ao produto')
 							span.material-input
 				
@@ -61,9 +61,9 @@
 					i.material-icons navigate_before
 					span  Voltar
 
-				a.btn.btn-success.pull-right(type="button", ng-click="createProduto()", ng-hide='isUpdate')
+				a.btn.btn-success.pull-right(type="button", ng-click="createProduto()", ng-hide='isUpdate', ng-disabled="cadastrarProduto.$invalid")
 					i.material-icons check
 					span  Cadastrar
-				a.btn.btn-success.pull-right(type="button", ng-click="updateProduto()", ng-show='isUpdate')
+				a.btn.btn-success.pull-right(type="button", ng-click="updateProduto()", ng-show='isUpdate', ng-disabled="cadastrarProduto.$invalid")
 					i.material-icons check
 					span  Salvar

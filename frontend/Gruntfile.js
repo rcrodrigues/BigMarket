@@ -212,7 +212,8 @@ module.exports = function(grunt) {
 						flatten: true,
 						cwd: 'bower_components',
 						src: [
-                            'angular-resize/public/javascripts/imageupload.js'
+                            'angular-resize/public/javascripts/imageupload.js',
+							'angular-locale-pt-br/angular-locale_pt-br.js'
 						],
 						dest: '<%= config.dist %>/scripts',
 					},

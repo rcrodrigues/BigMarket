@@ -35,20 +35,21 @@
 					.panel-heading
 						h4.panel-title Novo Comentário
 					.panel-body
-						.col-md-6
-							.form-group
-								label.control-label(for="Preco") Nome
-								input#NomeComentarista.form-control(ng-model="comentarioInfo.nomeComentador",type="text")
-						.col-md-6
-							.form-group
-								label.control-label(for="Preco") E-mail
-								input#EmailComentarista.form-control(ng-model="comentarioInfo.emailComentador",type="email")
-						textarea.comment-box(name="comentarios", id="comentarios",ng-model="comentarioInfo.comentario")
-							| Comente aqui...
+						form#formComentario(name='formComentario')
+							.col-md-6
+								.form-group
+									label.control-label(for="Preco") Nome
+									input#NomeComentarista.form-control(ng-model="comentarioInfo.nomeComentador",type="text")
+							.col-md-6
+								.form-group
+									label.control-label(for="Preco") E-mail
+									input#EmailComentarista.form-control(ng-model="comentarioInfo.emailComentador",type="email")
+							textarea.comment-box(name="comentarios", id="comentarios",ng-model="comentarioInfo.comentario",  required)
+								| Comente aqui...
 
-						button.btn.btn-success.pull-right(type="button", ng-click="createComentario()")
-							i.material-icons check
-							span  Postar comentário
+							button.btn.btn-success.pull-right(type="button", ng-click="createComentario()", ng-disabled='formComentario.$invalid')
+								i.material-icon check
+								span  Postar comentário
 
 				.panel.panel-primary(ng-repeat="comentario in comentarios")
 					.panel-body
