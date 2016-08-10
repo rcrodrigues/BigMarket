@@ -15,6 +15,22 @@
 									label.control-label(for="Preco") Valor Máximo
 									input#Preco.form-control(name="preco", ng-model="productFilter.preco", ui-money-mask)
 							.col-md-12
+									.form-group
+										label.control-label(for='select111') Select
+										select#select111.form-control(name='select111', ng-model="productFilter.tipo")
+											option Eletrodomésticos
+											option Celulares e Telefones
+											option Informática
+											option Portáteis
+											option Móveis
+											option Saúde e Beleza
+											option Games
+											option Livros
+											option Automotivo
+											option Tablets
+											option ...
+
+							.col-md-12
 								.form-group
 									.col-md-12.noPadding
 										label.control-label Estado de conservação
