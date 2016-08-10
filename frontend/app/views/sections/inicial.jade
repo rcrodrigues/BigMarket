@@ -5,15 +5,15 @@
 				.form-horizontal
 					fieldset
 						legend Filtros
-						form#productFilter
+						form#productFilter.novalidate
 							.col-md-12
 								.form-group.label-floating.is-empty
 									label.control-label(for="nomeProduto") Nome do Produto
-									input#nomeProduto.form-control(ng-model="productFilter.nome",type="text")
+									input#nomeProduto.form-control.required(ng-model="productFilter.nome",type="text")
 							.col-md-12
 								.form-group
 									label.control-label(for="Preco") Valor Máximo
-									input#Preco.form-control(ng-model="productFilter.preco",type="number")
+									input#Preco.form-control(name="preco", ng-model="productFilter.preco", ui-money-mask)
 							.col-md-12
 								.form-group
 									.col-md-12.noPadding
@@ -21,14 +21,14 @@
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.novo", ng-change="changeProdutoNovo(true)")
+												input(type="checkbox", checked, ng-model="productFilter.novo")
 												span.checkbox-material
 													span.check
 												|     Novo
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.usado", ng-change="changeProdutoNovo()")
+												input(type="checkbox", checked, ng-model="productFilter.usado")
 												span.checkbox-material
 													span.check
 												|     Usado
@@ -39,20 +39,23 @@
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.venda", ng-change="changeProdutoVenda(true)")
+												input(type="checkbox", checked, ng-model="productFilter.venda")
 												span.checkbox-material 
 													span.check
 												|     Venda
 									.col-sm-6.noPadding
 										.checkbox
 											label
-												input(type="checkbox", checked, ng-model="productFilter.troca", ng-change="changeProdutoVenda()")
+												input(type="checkbox", checked, ng-model="productFilter.troca")
 												span.checkbox-material
 													span.check
 												|     Troca
-							.col-md-12
-								a.btn.btn-primary.pull-right(ng-click='listProducts()') Pesquisar
+							.col-md-6.pull-right
+								a.btn.btn-primary(ng-click='listProducts()') Pesquisar
 									i.material-icons search
+							.col-md-6
+								a.btn.btn-danger.pull-left(ng-click='limparFiltro()') Limpar
+									i.material-icons clear
 
 		.col-sm-9(masonry)
 			.col-md-6.col-lg-3.masonry-brick(ng-repeat="product in productList")

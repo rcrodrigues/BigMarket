@@ -3,7 +3,7 @@ var app = exports;
 
 (function($) {
 
-	var modulo = angular.module('mercadaoModule', ['ngRoute', 'ui.bootstrap', 'wu.masonry', 'imageupload','blockUI']);
+	var modulo = angular.module('mercadaoModule', ['ngRoute', 'ui.bootstrap', 'wu.masonry', 'imageupload','blockUI', 'ui.utils.masks']);
 
 	modulo.config(['$routeProvider', '$httpProvider', '$compileProvider','blockUIConfig',
 

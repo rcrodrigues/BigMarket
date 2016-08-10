@@ -21,6 +21,8 @@
 				filtro.aceitaTroca = true;
 			else if($scope.productFilter.venda)
 				filtro.aceitaTroca = false;
+			else
+				filtro.aceitaTroca = null;
 
 			if($scope.productFilter.novo && $scope.productFilter.usado)
 				filtro.novo = null;
@@ -28,6 +30,8 @@
 				filtro.novo = true;
 			else if($scope.productFilter.usado)
 				filtro.novo = false;
+			else
+				filtro.novo = null;
 
 			midiasService.getAll(filtro, function(response) {
 				$scope.productList = response;
@@ -35,22 +39,10 @@
 
 		};
         
-        
-        $scope.changeProdutoNovo = function(novo) {
-            if(novo){
-                $scope.productFilter.usado = !$scope.productFilter.novo;
-            } else {
-                $scope.productFilter.novo = !$scope.productFilter.usado;
-            }
-        };
-        
-        $scope.changeProdutoVenda = function(venda){
-            if(venda){
-                $scope.productFilter.troca = !$scope.productFilter.venda;
-            } else {
-                $scope.productFilter.venda = !$scope.productFilter.troca;
-            }
-        };
+
+		$scope.limparFiltro = function(){
+			$scope.productFilter = {};
+		};
 
 		$scope.listProducts();
 

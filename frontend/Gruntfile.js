@@ -153,7 +153,8 @@ module.exports = function(grunt) {
 							'angular-bootstrap/ui-bootstrap-tpls.min.js',
 							'dropzone/downloads/dropzone.min.js',
 							'bootstrap-material-design/dist/material.min.js',
-                            'angular-block-ui/dist/angular-block-ui.min.js'
+                            'angular-block-ui/dist/angular-block-ui.min.js',
+							'angular-input-masks/angular-input-masks-standalone.min.js'
 						],
 						dest: '<%= config.dist %>/scripts'
 					}
@@ -176,7 +177,8 @@ module.exports = function(grunt) {
 							'angular-bootstrap/ui-bootstrap-tpls.js',
 							'dropzone/downloads/dropzone.js',
 							'bootstrap-material-design/dist/js/material.js',
-                            'angular-block-ui/dist/angular-block-ui.js'
+                            'angular-block-ui/dist/angular-block-ui.js',
+							'angular-input-masks/angular-input-masks-standalone.js'
 						],
 						dest: '<%= config.dist %>/scripts',
 						rename: function(dest, src) {
