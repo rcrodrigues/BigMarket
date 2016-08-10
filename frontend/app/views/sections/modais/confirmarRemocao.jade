@@ -1,0 +1,18 @@
+#modalRemoverProduto.modal.fade(data-backdrop='static')
+	.modal-dialog
+		.modal-content
+
+			.modal-header
+				
+				h4.modal-title Remover {{produtoSelecionado.produto.nome}}
+					button.close(data-dismiss="modal") x
+
+			.modal-body
+
+				h3 Tem certeza que deseja remover o produto??
+
+			.modal-footer
+				a.btn.btn-success(type="button", ng-click='deleteProduct(produtoSelecionado)', data-dismiss="modal")
+					i.material-icons check
+					span  Remover
+				

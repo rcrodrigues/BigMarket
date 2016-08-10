@@ -18,7 +18,15 @@
 
 		$scope.listProducts();
 
+		$scope.confirmarRemocao = function(produto) {
+
+			$scope.produtoSelecionado = produto;
+			$('#modalRemoverProduto').modal('show');
+
+		};
+
 		$scope.deleteProduct = function(produto) {
+
 			midiasService.delete(produto.id, function(response) {
 				if(response.success) {
 
