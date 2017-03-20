@@ -83,9 +83,11 @@
 
 		$scope.login = function() {
 
-			$scope.userLoginInfo.password = CryptoJS.MD5($scope.userLoginInfo.password).toString();
+			var copiaUsuario = {};
+			angular.copy($scope.userLoginInfo, copiaUsuario);
+			copiaUsuario.password = CryptoJS.MD5($scope.userLoginInfo.password).toString();
 
-			headerService.login($scope.userLoginInfo,
+			headerService.login(copiaUsuario,
 
 				function(response) {
 

@@ -16,11 +16,14 @@
 		$scope.createUsuario = function() {
 
 			$scope.postInfo = {
-				usuario: $scope.usuario,
+				usuario: {},
 				endereco: $scope.endereco
 			};
 
-			$scope.usuario.senha = CryptoJS.MD5($scope.usuario.senha).toString();
+			var copiaUsuario = {};
+			angular.copy($scope.usuario, copiaUsuario);
+			copiaUsuario.senha = CryptoJS.MD5($scope.usuario.senha).toString();
+			$scope.postInfo.usuario = copiaUsuario;
 
 			usuariosService.createUsuario($scope.postInfo,
 
