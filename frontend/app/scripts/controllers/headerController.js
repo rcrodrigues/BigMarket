@@ -11,7 +11,7 @@
 
 		$scope.itemLocality = "Lavras";
 		$scope.geocoder = null;
-        $rootScope.auth.username = '';
+		$rootScope.auth.username = '';
 
 		var codeLatLng = function(lat, lng) {
 
@@ -68,12 +68,12 @@
 			var errorFunction = function(err) {
 
 				if(err.code == 1) {
-	               console.log("Error: Access to location is denied!");
-	            }
-	            
-	            else if( err.code == 2) {
-	               console.log("Error: Position is unavailable!");
-	            }
+				   console.log("Error: Access to location is denied!");
+				}
+				
+				else if( err.code == 2) {
+				   console.log("Error: Position is unavailable!");
+				}
 
 			};
 			
@@ -82,6 +82,8 @@
 		};
 
 		$scope.login = function() {
+
+			$scope.userLoginInfo.password = CryptoJS.MD5($scope.userLoginInfo.password).toString();
 
 			headerService.login($scope.userLoginInfo,
 

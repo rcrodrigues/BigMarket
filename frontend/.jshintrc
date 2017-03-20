@@ -25,7 +25,8 @@
     "app": true,
     "_": false,
     "Dropzone": false,
-    "google": false
+    "google": false,
+    "CryptoJS": false
   },
   "devel":true
 

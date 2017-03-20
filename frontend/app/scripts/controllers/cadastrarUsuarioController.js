@@ -20,6 +20,8 @@
 				endereco: $scope.endereco
 			};
 
+			$scope.usuario.senha = CryptoJS.MD5($scope.usuario.senha).toString();
+
 			usuariosService.createUsuario($scope.postInfo,
 
 				function(response) {

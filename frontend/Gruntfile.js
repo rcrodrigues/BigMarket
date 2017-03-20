@@ -153,7 +153,7 @@ module.exports = function(grunt) {
 							'angular-bootstrap/ui-bootstrap-tpls.min.js',
 							'dropzone/downloads/dropzone.min.js',
 							'bootstrap-material-design/dist/material.min.js',
-                            'angular-block-ui/dist/angular-block-ui.min.js'
+							'angular-block-ui/dist/angular-block-ui.min.js',
 						],
 						dest: '<%= config.dist %>/scripts'
 					}
@@ -176,7 +176,9 @@ module.exports = function(grunt) {
 							'angular-bootstrap/ui-bootstrap-tpls.js',
 							'dropzone/downloads/dropzone.js',
 							'bootstrap-material-design/dist/js/material.js',
-                            'angular-block-ui/dist/angular-block-ui.js'
+							'angular-block-ui/dist/angular-block-ui.js',
+							'crypto-js/md5.js',
+							'crypto-js/core.js'
 						],
 						dest: '<%= config.dist %>/scripts',
 						rename: function(dest, src) {
@@ -210,7 +212,7 @@ module.exports = function(grunt) {
 						flatten: true,
 						cwd: 'bower_components',
 						src: [
-                            'angular-resize/public/javascripts/imageupload.js'
+							'angular-resize/public/javascripts/imageupload.js'
 						],
 						dest: '<%= config.dist %>/scripts',
 					},
@@ -230,9 +232,9 @@ module.exports = function(grunt) {
 							'imagesloaded/imagesloaded.js',
 							'angular-masonry/angular-masonry.js',
 							'get-size/get-size.js',
-                           
-                            
-                           
+						   
+							
+						   
 						],
 						dest: '<%= config.dist %>/scripts'
 					},
@@ -246,7 +248,7 @@ module.exports = function(grunt) {
 							'dropzone/downloads/css/dropzone.css',
 							'bootstrap-material-design/dist/css/bootstrap-material-design.css',
 							'bootstrap-material-design/dist/css/ripples.css',
-                            'angular-block-ui/dist/angular-block-ui.css'
+							'angular-block-ui/dist/angular-block-ui.css'
 
 						],
 						dest: '<%= config.dist %>/styles'
