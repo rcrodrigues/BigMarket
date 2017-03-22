@@ -2,7 +2,7 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('headerController', function($scope, $rootScope, $location, headerService, $log) {
+	modulo.controller('headerController', function($scope, $http, $rootScope, $location, headerService, $log) {
 		
 		$scope.userLoginInfo = {
 			username: null,
@@ -14,47 +14,23 @@
 		$rootScope.auth.username = '';
 
 		var codeLatLng = function(lat, lng) {
-
-			var latlng = new google.maps.LatLng(lat, lng);
-
-			$scope.geocoder.geocode({'latLng': latlng}, function(results, status) {
-
-				if (status == google.maps.GeocoderStatus.OK) {
-
-					if (results[1]) {
-
-						var arrAddress = results;
-
-						$.each(arrAddress, function(i, address_component) {
-
-							if (address_component.types[0] == "locality") {
-
-								$scope.itemLocality = address_component.address_components[0].long_name;
-								$scope.$apply();
-
-							}
-
-						});
-
-					} else {
-
-						console.log("No results found");
-
-					}
-
-				} else {
-
-					console.log("Geocoder failed due to: " + status);
-
-				}
-
+			
+			$http.get('http://nominatim.openstreetmap.org/reverse?format=json&lat='+lat+'&lon='+lng+'&zoom=18&addressdetails=1')
+			.then( function (result) {
+				$scope.itemLocality = result.data.address.city;
+				$rootScope.itemLocalityId = result.data.place_id;
+				
+			})
+			.catch( function(error) {
+				let errorMessage = "não foi possível identificar sua cidade/região. Por favor autorize a geolicalização de seu navegador";
+				$scope.$emit('showMessageEvent',errorMessage , 'danger');
 			});
 
 		};
 
 
 		$scope.init = function() {
-			$scope.geocoder = new google.maps.Geocoder();
+
 			// Get the latitude and the longitude;
 			var successFunction = function(position) {
 
@@ -80,6 +56,8 @@
 			if (navigator.geolocation)
 				navigator.geolocation.getCurrentPosition(successFunction, errorFunction,{timeout:1000});
 		};
+
+		$scope.init();
 
 		$scope.login = function() {
 

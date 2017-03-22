@@ -43,6 +43,9 @@ public class Produto extends GenericModel {
 	@Column(name="produtonovo")
 	public Boolean novo;
 	
+	@Column(name="place_id_osm")
+	public Integer placeId;
+	
 	public Boolean vendido;
 	
 	public static List<Produto> findByUser(Usuario usuario) {
@@ -57,6 +60,16 @@ public class Produto extends GenericModel {
 		
 		String sql = "select p from " + Produto.class.getSimpleName() + " p ";
 		Boolean addedWhere = false;
+		
+		if(filtro.location != null) {
+			
+			if(!addedWhere)
+				sql += "where p.placeId = " + filtro.location;
+			else
+				sql += " and p.placeId = " + filtro.location;
+			
+			addedWhere = true;
+		}
 		
 		if(filtro.nome != null) {
 			

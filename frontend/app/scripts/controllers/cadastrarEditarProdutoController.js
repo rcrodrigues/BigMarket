@@ -32,7 +32,7 @@
 			$scope.creationObject = {
 				produto: $scope.produto,
 				username: $rootScope.auth.username,
-				midia: $scope.productImage.resized.dataURL
+				midia: $scope.productImage.resized.dataURL,
 			};
 
 			if($scope.creationObject.produto.aceitaTroca === undefined)
@@ -41,6 +41,8 @@
 				$scope.creationObject.produto.novo = false;
 			if($scope.creationObject.produto.vendido === undefined)
 				$scope.creationObject.produto.vendido = false;
+			$scope.creationObject.produto.placeId = $rootScope.itemLocalityId;
+
 
 			produtosService.createProduto($scope.creationObject,
 

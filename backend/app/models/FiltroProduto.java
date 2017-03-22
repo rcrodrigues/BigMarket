@@ -6,5 +6,6 @@ public class FiltroProduto {
 	public Double preco;
 	public Boolean aceitaTroca;
 	public Boolean novo;
+	public Integer location;
     
 }

@@ -2,7 +2,7 @@
 
 	var modulo = angular.module('mercadaoModule');
 
-	modulo.controller('InicialController', function($scope, $rootScope, $location, midiasService) {
+	modulo.controller('InicialController', function($scope, $rootScope, midiasService) {
 		//console.log('teste de console - InicialController');
 		$scope.productFilter = {};
 
@@ -14,6 +14,7 @@
 
 			filtro.nome = $scope.productFilter.nome;
 			filtro.preco = $scope.productFilter.preco;
+			filtro.location = $rootScope.itemLocalityId;
 
 			if($scope.productFilter.troca && $scope.productFilter.venda)
 				filtro.aceitaTroca = null;
@@ -34,25 +35,28 @@
 			});
 
 		};
-        
-        
-        $scope.changeProdutoNovo = function(novo) {
-            if(novo){
-                $scope.productFilter.usado = !$scope.productFilter.novo;
-            } else {
-                $scope.productFilter.novo = !$scope.productFilter.usado;
-            }
-        };
-        
-        $scope.changeProdutoVenda = function(venda){
-            if(venda){
-                $scope.productFilter.troca = !$scope.productFilter.venda;
-            } else {
-                $scope.productFilter.venda = !$scope.productFilter.troca;
-            }
-        };
+		
+		
+		$scope.changeProdutoNovo = function(novo) {
+			if(novo){
+				$scope.productFilter.usado = !$scope.productFilter.novo;
+			} else {
+				$scope.productFilter.novo = !$scope.productFilter.usado;
+			}
+		};
+		
+		$scope.changeProdutoVenda = function(venda){
+			if(venda){
+				$scope.productFilter.troca = !$scope.productFilter.venda;
+			} else {
+				$scope.productFilter.venda = !$scope.productFilter.troca;
+			}
+		};
 
-		$scope.listProducts();
+		$rootScope.$watch($rootScope.itemLocalityId, function(teste) {
+			$scope.listProducts();
+			$scope.$apply();
+		});
 
 	});
 

@@ -20,6 +20,7 @@ public class Produtos extends Controller {
 		public Produto produto;
 		public String username;
 		public String midia;
+		public String placeId;
 	}
 
 	public static void create() {
