@@ -1,0 +1,81 @@
+.container
+	.panel.panel-primary
+		.panel-heading
+			h3 Cadastrar Usuario
+		.panel-body
+			form#cadastrarUsuario
+				br
+				h4 Credenciais
+				.row
+					.col-md-4
+						.form-group
+							label(for="nome") Usuário
+							input#nome.form-control(ng-model="usuario.login", type="text")
+					.col-md-4
+						.form-group
+							label(for="senha") Senha
+							input#senha.form-control(ng-model="usuario.senha", type="password")
+					.col-md-4
+						.form-group
+							label(for="checkSenha") Confirme a Senha
+							input#checkSenha.form-control(ng-model="checkSenha", type="password", ng-blur="checkIgualdade()")
+				hr
+				h4 Dados Básicos			
+				.form-group
+					label(for="nome") Nome
+					input#nome.form-control(ng-model="usuario.pessoa.nome", type="text")
+
+				.row
+					.col-md-6
+						.form-group
+							label(for="email") Email
+							input#email.form-control(ng-model="usuario.pessoa.email", type="email")
+					.col-md-6	
+						.form-group
+							label(for="dataNascimento") Data de Nascimento
+							input#dataNascimento.form-control(ng-model="usuario.pessoa.dataNascimento", type="date")
+				
+				.row
+					.col-md-6
+						.form-group
+							label(for="cpf") CPF
+							input#cpf.form-control(ng-model="usuario.pessoa.cpf", type="text")
+					.col-md-6
+						.form-group
+							label(for="telefone") Telefone
+							input#telefone.form-control(ng-model="usuario.pessoa.telefone", type="text")
+				
+				hr
+				h4 Endereço
+
+				.row
+					.col-md-6
+						.form-group
+							label(for="logradouro") Logradouro
+							input#logradouro.form-control(ng-model="endereco.logradouro", type="text")
+					.col-md-3
+						.form-group
+							label(for="bairro") Bairro
+							input#bairro.form-control(ng-model="endereco.bairro", type="text")
+					.col-md-3
+						.form-group
+							label(for="numero") Numero
+							input#numero.form-control(ng-model="endereco.numero", type="text")
+				
+				.row
+					.col-md-3
+						.form-group
+							label(for="cep") CEP
+							input#cep.form-control(type="number",ng-model="endereco.cep", ng-blur="initCorreioServices()")
+					.col-md-3
+						.form-group
+							label(for="uf") Estado
+							input#uf.form-control(ng-model="endereco.estado")
+					.col-md-6
+						.form-group
+							label(for="municipio") Municipio
+							input#municipio.form-control(ng-model="endereco.municipio")
+				.row
+					a.btn.btn-success.pull-right(type="button", ng-click="createUsuario()", ng-disabled="senhaInvalida")
+						i.material-icons check
+						span  Cadastrar

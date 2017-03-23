@@ -9,7 +9,11 @@ module.exports = function(grunt) {
 		jades: [
 			'index.jade',
 
-			'sections/inicial.jade'
+			'sections/inicial.jade',
+			'sections/cadastrarUsuario.jade',
+			'sections/dashboard.jade',
+			'sections/cadastrarEditarProduto.jade',
+			'sections/visualizarProduto.jade'
 		]
 	};
 		
@@ -138,6 +142,8 @@ module.exports = function(grunt) {
 						src: [
 							'jquery/dist/jquery.min.js',
 							'jquery/dist/jquery.min.map',
+							'angular-route/angular-route.min.js',
+							'angular-route/angular-route.min.map',
 							'angular/angular.min.js',
 							'angular/angular.min.js.map',
 							'underscore/underscore-min.js',
@@ -145,7 +151,9 @@ module.exports = function(grunt) {
 							'bootstrap/dist/js/bootstrap.min.js',
 							'angular-bootstrap/ui-bootstrap.min.js',
 							'angular-bootstrap/ui-bootstrap-tpls.min.js',
-							'dropzone/downloads/dropzone.min.js'
+							'dropzone/downloads/dropzone.min.js',
+							'bootstrap-material-design/dist/material.min.js',
+							'angular-block-ui/dist/angular-block-ui.min.js',
 						],
 						dest: '<%= config.dist %>/scripts'
 					}
@@ -162,10 +170,15 @@ module.exports = function(grunt) {
 						src: [
 							'jquery/dist/jquery.js',
 							'angular/angular.js',
+							'angular-route/angular-route.js',
 							'bootstrap/dist/js/bootstrap.js',
 							'angular-bootstrap/ui-bootstrap.js',
 							'angular-bootstrap/ui-bootstrap-tpls.js',
-							'dropzone/downloads/dropzone.js'
+							'dropzone/downloads/dropzone.js',
+							'bootstrap-material-design/dist/js/material.js',
+							'angular-block-ui/dist/angular-block-ui.js',
+							'crypto-js/md5.js',
+							'crypto-js/core.js'
 						],
 						dest: '<%= config.dist %>/scripts',
 						rename: function(dest, src) {
@@ -199,7 +212,29 @@ module.exports = function(grunt) {
 						flatten: true,
 						cwd: 'bower_components',
 						src: [
-							'blockui/jquery.blockUI.js'
+							'angular-resize/public/javascripts/imageupload.js'
+						],
+						dest: '<%= config.dist %>/scripts',
+					},
+					//masonry dependencies
+					{
+						expand: true,
+						flatten: true,
+						cwd: 'bower_components',
+						src: [
+							'jquery-bridget/jquery-bridget.js',
+							'ev-emitter/ev-emitter.js',
+							'desandro-matches-selector/matches-selector.js',
+							'fizzy-ui-utils/utils.js',
+							'outlayer/item.js',
+							'outlayer/outlayer.js',
+							'masonry/masonry.js',
+							'imagesloaded/imagesloaded.js',
+							'angular-masonry/angular-masonry.js',
+							'get-size/get-size.js',
+						   
+							
+						   
 						],
 						dest: '<%= config.dist %>/scripts'
 					},
@@ -210,7 +245,11 @@ module.exports = function(grunt) {
 						cwd: 'bower_components/',
 						src: [
 							'jquery-ui/themes/base/minified/jquery-ui.min.css',
-							'dropzone/downloads/css/dropzone.css'
+							'dropzone/downloads/css/dropzone.css',
+							'bootstrap-material-design/dist/css/bootstrap-material-design.css',
+							'bootstrap-material-design/dist/css/ripples.css',
+							'angular-block-ui/dist/angular-block-ui.css'
+
 						],
 						dest: '<%= config.dist %>/styles'
 					},

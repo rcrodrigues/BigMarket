@@ -7,33 +7,84 @@ html(lang='pt-br')
 
 		link(href='styles/estilo.css', rel="stylesheet")
 		link(href='images/favicon.png', rel="shortcut icon")
+		<!-- Material Design fonts -->
+		link(href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700', rel="stylesheet")
+		link(href='//fonts.googleapis.com/icon?family=Material+Icons', rel="stylesheet")
+		<!-- Bootstrap Material Design -->
+		link(href='styles/bootstrap-material-design.css', rel="stylesheet")
+		link(href='styles/ripples.css', rel="stylesheet")
+		<!-- blockUI -->
+		link(href='styles/angular-block-ui.css', rel="stylesheet")
+
 
 		script(src='scripts/jquery.min.js')
+
+		// masonry dependencies (float up)
+		script(src='scripts/jquery-bridget.js')
+		script(src='scripts/ev-emitter.js')
+		script(src='scripts/matches-selector.js')
+		script(src='scripts/utils.js')
+		script(src='scripts/get-size.js')
+		script(src='scripts/item.js')
+		script(src='scripts/outlayer.js')
+		script(src='scripts/masonry.js')
+		script(src='scripts/imagesloaded.js')
+		
+		
+
 		script(src='scripts/angular.min.js')
+
+		script(src='scripts/angular-masonry.js')
+		
+		script(src='scripts/angular-block-ui.min.js')
+		script(src='scripts/imageupload.js')
+		script(src='scripts/angular-route.min.js')
 		script(src='scripts/underscore-min.js')
 		script(src='scripts/bootstrap.min.js')
 		script(src='scripts/ui-bootstrap.min.js')
 		script(src='scripts/ui-bootstrap-tpls.min.js')
-		script(src='scripts/jquery.blockUI.js')
+		// script(src='scripts/jquery.blockUI.js')
 		script(src='scripts/dropzone.min.js')
-
+		script(src='scripts/core.min.js')
+		script(src='scripts/md5.min.js')
+		
 		title Mercadão
 
 	body(ng-app="mercadaoModule", ng-controller="AppCtrl", ng-cloak)
 		
 		div#wrap
-			
-			- var home= true
+			include header
+			article.message-box#message(ng-show="msg.show && (msg.target === 'body' || msg.target === 'all')")
+				div.alert.alert-dismissable(class="alert-{{msg.tipo}}", affix, data-offset-top="170")
+					a.close(type="button", ng-click="msg.show = false") ×
+					span.material-icons(ng-if='msg.tipo === "success"') check_circle 
+					span.material-icons(ng-if='msg.tipo === "danger"') error
+					&nbsp{{msg.texto}}
+			ng-view
+				//- - var home= true
+
 	
 	//-<!-- build:js  scripts/scripts.min.js -->
-	
+	script(src='scripts/material.min.js')
+
 	script(src='scripts/app.js')
 	script(src='scripts/appConfig.js')
 
 	script(src='scripts/factories/httpInterceptor.js')
 		
 	script(src='scripts/filters/ifFilter.js')
+	script(src='scripts/filters/customCurrency.js')
+	script(src='scripts/controllers/inicialController.js')
+	script(src='scripts/controllers/headerController.js')
+	script(src='scripts/controllers/cadastrarUsuarioController.js')
+	script(src='scripts/controllers/dashboardController.js')
+	script(src='scripts/controllers/cadastrarEditarProdutoController.js')
+	script(src='scripts/controllers/visualizarProdutoController.js')
 
-	script(src='scripts/controllers/inicial.js')	
-
+	script(src='scripts/services/produtosService.js')
+	script(src='scripts/services/headerService.js')
+	script(src='scripts/services/usuariosService.js')
+	script(src='scripts/services/midiasService.js')
+	script(src='scripts/services/correiosServices.js')
+	script(src='scripts/services/comentariosService.js')
 	//-<!-- endbuild -->

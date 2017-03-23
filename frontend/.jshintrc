@@ -3,7 +3,7 @@
   "browser": true,
   "esnext": true,
   "bitwise": false,
-  "camelcase": true,
+  "camelcase": false,
   "curly": false,
   "eqeqeq": false,
   "immed": true,
@@ -24,7 +24,9 @@
     "angular": false,
     "app": true,
     "_": false,
-    "Dropzone": false
+    "Dropzone": false,
+    "google": false,
+    "CryptoJS": false
   },
   "devel":true
 

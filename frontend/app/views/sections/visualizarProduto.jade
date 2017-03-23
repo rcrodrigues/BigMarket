@@ -1,0 +1,59 @@
+.container-fluid
+	.panel.panel-primary
+		.panel-heading
+			h2.panel-title {{product.produto.nome}}
+		.panel-body
+			.col-md-6
+				.jumbotron
+					img.center(ng-src="{{product.dado}}")
+			.col-md-6
+				h3 {{product.produto.descricao}}
+				h3
+					b Preço: 
+					| {{product.produto.preco | customCurrency}}
+				h3
+					b.pull-left Aceita troca: 
+					span.material-icons(ng-if='product.produto.aceitaTroca') check_circle 
+					span.material-icons(ng-if='!product.produto.aceitaTroca') cancel
+					br
+				h3
+					b.pull-left Produto novo: 
+					span.material-icons(ng-if='product.produto.novo') check_circle 
+					span.material-icons(ng-if='!product.produto.novo') cancel
+					br
+				h3
+					b.pull-left Produto ainda disponível: 
+					span.material-icons(ng-if='!product.produto.vendido') check_circle 
+					span.material-icons(ng-if='product.produto.vendido') cancel
+					br
+				a.btn.btn-success.pull-right.always-bottom(type="button", ng-href='mailto:{{userEmail}}')
+					i.material-icons email
+					span  Entrar em contato com o vendedor
+			.col-md-12
+				h1
+					b Comentários
+				.panel.panel-primary
+					.panel-heading
+						h4.panel-title Novo Comentário
+					.panel-body
+						.col-md-6
+							.form-group
+								label.control-label(for="Preco") Nome
+								input#NomeComentarista.form-control(ng-model="comentarioInfo.nomeComentador",type="text")
+						.col-md-6
+							.form-group
+								label.control-label(for="Preco") E-mail
+								input#EmailComentarista.form-control(ng-model="comentarioInfo.emailComentador",type="email")
+						textarea.comment-box(name="comentarios", id="comentarios",ng-model="comentarioInfo.comentario")
+							| Comente aqui...
+
+						button.btn.btn-success.pull-right(type="button", ng-click="createComentario()")
+							i.material-icons check
+							span  Postar comentário
+
+				.panel.panel-primary(ng-repeat="comentario in comentarios")
+					.panel-body
+						.row
+							h2.col-md-12 {{comentario.comentario}}
+							span.col-md-6 {{comentario.nomeComentador}}
+							span.col-md-6 {{comentario.emailComentador}}

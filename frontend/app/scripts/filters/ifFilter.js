@@ -1,6 +1,6 @@
 (function() {
 
-	angular.module("appModule")
+	angular.module("mercadaoModule")
 		
 		.filter('if', function() {
 			return function(v, yes, no) {

@@ -1,23 +1,28 @@
-div#modalLogin.modal.fade(data-backdrop='static')
-	div.modal-dialog
-		div.modal-content
+#modalLogin.modal.fade(data-backdrop='static', data-ng-controller='headerController')
+	.modal-dialog
+		.modal-content
 
-			div.modal-header
-				h4.modal-title Acesso ao Sistema
+			.modal-header
+				
+				h4.modal-title Acesso ao Sistema de Vendas
+					button.close(data-dismiss="modal") x
 
-			div.modal-body
+			.modal-body
 
-				div.form
-
-					div.form-group
+				.form(name="loginForm")
+					.form-group
 						label(for="login") Usuário:
-						input.form-control(type="text", size="15", name="login", ng-model="username")
+						input.form-control(type="text", size="15", name="login", ng-model="userLoginInfo.username", autofocus, required)
 
-					div.form-group
+					.form-group
 						label(for="senha") Senha:
-						input.form-control(type="password", size="15", name="senha", ng-model="password")
+						input.form-control(type="password", size="15", name="senha", ng-model="userLoginInfo.password", required)
 
-			div.modal-footer
-				button.btn.btn-success(type="button", ng-click="login()")
-					span.glyphicon.glyphicon-ok
+			.modal-footer
+
+				a.text-center(style='margin-right:5px', href='#/cadastrarUsuario').
+					Ser um vendedor!
+				a.btn.btn-success(type="button", ng-click="login()", ng-disabled="!!loginForm.$error.required")
+					i.material-icons check
 					span  Entrar
+				

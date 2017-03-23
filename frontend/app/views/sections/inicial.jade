@@ -1,2 +1,67 @@
-div
-	h5 It's Working
+.container-fluid
+	.row
+		.col-sm-3(style="padding-right:0px")
+			.jumbotron
+				.form-horizontal
+					fieldset
+						legend Filtros
+						form#productFilter
+							.col-md-12
+								.form-group.label-floating.is-empty
+									label.control-label(for="nomeProduto") Nome do Produto
+									input#nomeProduto.form-control(ng-model="productFilter.nome",type="text")
+							.col-md-12
+								.form-group
+									label.control-label(for="Preco") Valor Máximo
+									input#Preco.form-control(ng-model="productFilter.preco",type="number")
+							.col-md-12
+								.form-group
+									.col-md-12.noPadding
+										label.control-label Estado de conservação
+									.col-sm-6.noPadding
+										.checkbox
+											label
+												input(type="checkbox", checked, ng-model="productFilter.novo", ng-change="changeProdutoNovo(true)")
+												span.checkbox-material
+													span.check
+												|     Novo
+									.col-sm-6.noPadding
+										.checkbox
+											label
+												input(type="checkbox", checked, ng-model="productFilter.usado", ng-change="changeProdutoNovo()")
+												span.checkbox-material
+													span.check
+												|     Usado
+							.col-md-12
+								.form-group
+									.col-md-12.noPadding
+										label.control-label Oferta
+									.col-sm-6.noPadding
+										.checkbox
+											label
+												input(type="checkbox", checked, ng-model="productFilter.venda", ng-change="changeProdutoVenda(true)")
+												span.checkbox-material 
+													span.check
+												|     Venda
+									.col-sm-6.noPadding
+										.checkbox
+											label
+												input(type="checkbox", checked, ng-model="productFilter.troca", ng-change="changeProdutoVenda()")
+												span.checkbox-material
+													span.check
+												|     Troca
+							.col-md-12
+								a.btn.btn-primary.pull-right(ng-click='listProducts()') Pesquisar
+									i.material-icons search
+
+		.col-sm-9(masonry)
+			.col-md-6.col-lg-3.masonry-brick(ng-repeat="product in productList")
+				a.jumbotron.noPadding.fill(ng-href='#/visualizarProduto/{{product.id}}')
+					img(ng-src="{{product.dado}}")
+					.cardBottomInfo
+						{{product.produto.nome}}
+					.cardTopRightInfo
+						.badge
+							{{product.produto.preco | customCurrency}}
+					
+					

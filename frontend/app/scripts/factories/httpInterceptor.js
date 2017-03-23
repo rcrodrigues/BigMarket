@@ -1,6 +1,6 @@
 (function() {
 
-	angular.module('appModule').factory('httpInterceptor', function($q, $window, config, $rootScope) {
+	angular.module('mercadaoModule').factory('httpInterceptor', function($q, $window, config, $rootScope) {
 
 		var HTTPStatus = {
 			UNAUTHORIZED: '401',
@@ -20,9 +20,9 @@
 					
 				} else if (rejection.status == HTTPStatus.UNAUTHORIZED) {
 
-					$rootScope.removeUsuario();
+					$rootScope.auth.username = '';
 
-					location.href = config.LOGIN_REDIRECT_URL;
+					location.href = config.BASE_URL;
 
 					return rejection;
 
