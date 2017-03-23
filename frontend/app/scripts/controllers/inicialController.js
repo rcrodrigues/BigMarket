@@ -53,9 +53,9 @@
 			}
 		};
 
-		$rootScope.$watch($rootScope.itemLocalityId, function(teste) {
-			$scope.listProducts();
-			$scope.$apply();
+		$rootScope.$watch('itemLocalityId', function(teste) {
+			if(teste)
+				$scope.listProducts();
 		});
 
 	});

@@ -19,6 +19,7 @@
 			.then( function (result) {
 				$scope.itemLocality = result.data.address.city;
 				$rootScope.itemLocalityId = result.data.place_id;
+				//$scope.$apply();
 				
 			})
 			.catch( function(error) {
